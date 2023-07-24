@@ -8,8 +8,8 @@ Proyecto de prueba Propital de visualización de proyectos inmobiliarios
 3. [Requisitos](#requisitos)
 4. [Instrucciones de Instalación](#instrucciones-de-instalación)
 5. [Uso](#uso)
-6. [Contribuciones](#contribuciones)
-7. [Licencia](#licencia)
+6. [Vista interfaz](#interfaz)
+
 
 ## Descripción
 
@@ -183,4 +183,10 @@ Es posible que necesites reiniciar la aplicación (tanto frontend como backend) 
 Con estas configuraciones en los archivos .env, el frontend y el backend podrán acceder a las variables de entorno que has definido y utilizarlas para sus respectivas configuraciones. 
 
 Espero que estas instrucciones te sean útiles. Si tienes más preguntas o necesitas más ayuda, no dudes en preguntar
+
+
+## interfaz
+****Visualización del proyecto****
+![interfaz Gráfica](images/interfaz.png)
+
 
