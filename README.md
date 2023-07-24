@@ -19,28 +19,29 @@ Este es un proyecto que permite la visuakización de puntos en el mapa que muest
 
 Prueba/
 |-- FRONT/
-| |-- propital
-| | |-- Raíz de proyecto FRONT
-| | |-- # carpeta Raíz (Acá se debe correr el comando del cliente)
-| | |-- # Contenido de la carpeta propital
-| | |-- # Otros archivos y carpetas en propital   
-| | |-- En este nivel crear el archivo .env  
-| |-- # Contenido de la carpeta FRONT
-| |-- # Otros archivos y carpetas en FRONT
+|   |-- propital/
+|   |   |-- Raíz de proyecto FRONT
+|   |   |-- # carpeta Raíz (Acá se debe correr el comando del cliente)
+|   |   |-- # Contenido de la carpeta propital
+|   |   |-- # Otros archivos y carpetas en propital
+|   |   |-- En este nivel crear el archivo .env
+|   |-- # Contenido de la carpeta FRONT
+|   |-- # Otros archivos y carpetas en FRONT
 |
 |-- API/
-| |-- propital
-| | |-- # carpeta Raíz (Acá se debe correr el comando del servidor)
-| | |-- # Contenido de la carpeta propital
-| | |-- # Otros archivos y carpetas en propital
-| | |-- En este nivel crear el archivo .env
-| | |   |-- database
-| | |   |   |-- mongo_conection.py
-| | |   |   |-- # Otros archivos y carpetas en database
-| |-- # Contenido de la carpeta API
-| |-- # Otros archivos y carpetas en API
+|   |-- propital/
+|   |   |-- # carpeta Raíz (Acá se debe correr el comando del servidor)
+|   |   |-- # Contenido de la carpeta propital
+|   |   |-- # Otros archivos y carpetas en propital
+|   |   |-- En este nivel crear el archivo .env
+|   |-- database/
+|   |   |-- mongo_conection.py
+|   |   |-- # Otros archivos y carpetas en database
+|   |-- # Contenido de la carpeta API
+|   |-- # Otros archivos y carpetas en API
 |
 |-- # Otros archivos y carpetas en la raíz del proyecto
+
 
 ## Requisitos
 
