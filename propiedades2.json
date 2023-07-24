@@ -1,0 +1,1262 @@
+[
+    {
+        "id": 1,
+        "address": "123 Main St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            40.7128,
+            -74.0060
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Encantadora casa con vista a la montaña.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 2,
+        "address": "456 Oak St",
+        "price": 300000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            34.0522,
+            -118.2437
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Amplia casa en el corazón de la ciudad.",
+        "details": {
+            "year_built": 2002,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 3,
+        "address": "789 Elm St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [
+            51.5074,
+            -0.1278
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Acogedora casa en el centro de la ciudad.",
+        "details": {
+            "year_built": 1980,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 4,
+        "address": "789 Oak St",
+        "price": 350000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2200,
+        "location": [
+            35.6895,
+            139.6917
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Elegante casa en el corazón de la ciudad.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 5,
+        "address": "456 Elm St",
+        "price": 420000,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "size_sqft": 2800,
+        "location": [
+            48.8566,
+            2.3522
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Espectacular casa en el centro histórico.",
+        "details": {
+            "year_built": 2010,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 6,
+        "address": "101 Pine St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            -33.8688,
+            151.2093
+        ],
+        "terrain_type": "Playa",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Acogedora casa cerca de la playa.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 7,
+        "address": "202 Maple St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1800,
+        "location": [
+            -22.9068,
+            -43.1729
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa moderna con excelentes vistas.",
+        "details": {
+            "year_built": 2015,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 8,
+        "address": "303 Birch St",
+        "price": 280000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            51.5072,
+            -0.1276
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Encantadora casa con jardín privado.",
+        "details": {
+            "year_built": 2000,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 9,
+        "address": "404 Oak St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2200,
+        "location": [
+            -37.8136,
+            144.9631
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Amplia casa con patio trasero.",
+        "details": {
+            "year_built": 2005,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 10,
+        "address": "505 Elm St",
+        "price": 210000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [
+            -33.4489,
+            -70.6693
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa acogedora en barrio tranquilo.",
+        "details": {
+            "year_built": 1998,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 11,
+        "address": "606 Cedar St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1800,
+        "location": [
+            35.682839,
+            139.759455
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con estilo contemporáneo.",
+        "details": {
+            "year_built": 2012,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 12,
+        "address": "707 Pine St",
+        "price": 210000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [
+            37.7749,
+            -122.4194
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Acogedora casa en un vecindario tranquilo.",
+        "details": {
+            "year_built": 1990,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 13,
+        "address": "808 Oak St",
+        "price": 400000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2200,
+        "location": [
+            -26.2041,
+            28.0473
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Casa elegante en una excelente ubicación.",
+        "details": {
+            "year_built": 2018,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 14,
+        "address": "909 Elm St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            39.9042,
+            116.4074
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Hogar acogedor en una zona residencial.",
+        "details": {
+            "year_built": 1987,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 15,
+        "address": "1010 Maple St",
+        "price": 300000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            52.5200,
+            13.4050
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa moderna con diseño elegante.",
+        "details": {
+            "year_built": 2006,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 16,
+        "address": "1111 Birch St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            59.3293,
+            18.0686
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa con mucha luz natural.",
+        "details": {
+            "year_built": 2004,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 17,
+        "address": "1212 Oak St",
+        "price": 220000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            55.7558,
+            37.6173
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa encantadora en una calle arbolada.",
+        "details": {
+            "year_built": 1992,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 18,
+        "address": "1313 Elm St",
+        "price": 350000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            41.3851,
+            2.1734
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Amplia casa con impresionantes vistas.",
+        "details": {
+            "year_built": 2016,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 19,
+        "address": "1414 Maple St",
+        "price": 190000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [
+            -34.6037,
+            -58.3816
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa acogedora con jardín privado.",
+        "details": {
+            "year_built": 1995,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 20,
+        "address": "1515 Birch St",
+        "price": 280000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            -33.8688,
+            151.2093
+        ],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa moderna cerca de la playa.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 21,
+        "address": "1616 Pine St",
+        "price": 230000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            51.5074,
+            -0.1278
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Hermosa casa en el centro histórico.",
+        "details": {
+            "year_built": 1930,
+            "garage": "No tiene garaje",
+            "pool": false
+        }
+    },
+    {
+        "id": 22,
+        "address": "1717 Oak St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            -33.8688,
+            151.2093
+        ],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con vista al mar en una zona tranquila.",
+        "details": {
+            "year_built": 1998,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 23,
+        "address": "1818 Elm St",
+        "price": 380000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            40.7128,
+            -74.0060
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Amplia casa con un bonito jardín.",
+        "details": {
+            "year_built": 2005,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 24,
+        "address": "1919 Maple St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            -37.8136,
+            144.9631
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa acogedora en un barrio pintoresco.",
+        "details": {
+            "year_built": 1965,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 25,
+        "address": "2020 Birch St",
+        "price": 400000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2200,
+        "location": [
+            37.7749,
+            -122.4194
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Elegante casa con vistas panorámicas.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 26,
+        "address": "2121 Oak St",
+        "price": 210000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [
+            55.7558,
+            37.6173
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Acogedora casa en un vecindario tranquilo.",
+        "details": {
+            "year_built": 1980,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 27,
+        "address": "2222 Elm St",
+        "price": 360000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1700,
+        "location": [
+            26.2041,
+            28.0473
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con diseño moderno en un barrio exclusivo.",
+        "details": {
+            "year_built": 2015,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 28,
+        "address": "2323 Maple St",
+        "price": 190000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            -34.6037,
+            -58.3816
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Hogar acogedor en un entorno natural.",
+        "details": {
+            "year_built": 1978,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 29,
+        "address": "2424 Birch St",
+        "price": 340000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            52.5200,
+            13.4050
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con diseño arquitectónico único.",
+        "details": {
+            "year_built": 1999,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 30,
+        "address": "2525 Oak St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            59.3293,
+            18.0686
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa en un vecindario con parques cercanos.",
+        "details": {
+            "year_built": 1988,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 31,
+        "address": "2626 Elm St",
+        "price": 420000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            -33.8675,
+            151.2070
+        ],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Casa frente a la playa con impresionantes vistas.",
+        "details": {
+            "year_built": 2006,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 32,
+        "address": "2727 Maple St",
+        "price": 230000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            35.6895,
+            139.6917
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa moderna en una ciudad vibrante.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 33,
+        "address": "2828 Birch St",
+        "price": 350000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [
+            55.7558,
+            37.6173
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa en un entorno histórico con arquitectura encantadora.",
+        "details": {
+            "year_built": 2012,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 34,
+        "address": "2929 Oak St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            48.8566,
+            2.3522
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa con encanto en el corazón de la ciudad del amor.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 35,
+        "address": "3030 Pine St",
+        "price": 380000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            -26.2041,
+            28.0473
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Amplia casa en una ciudad cosmopolita.",
+        "details": {
+            "year_built": 2005,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 36,
+        "address": "3131 Elm St",
+        "price": 280000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            37.7749,
+            -122.4194
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con vistas panorámicas de la bahía.",
+        "details": {
+            "year_built": 2002,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 37,
+        "address": "3232 Birch St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            -34.6037,
+            -58.3816
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa en un barrio histórico con una mezcla cultural fascinante.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 38,
+        "address": "3333 Oak St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            51.5074,
+            -0.1278
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Elegante casa en el centro de la metrópoli.",
+        "details": {
+            "year_built": 2000,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 39,
+        "address": "3434 Elm St",
+        "price": 190000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            -33.8688,
+            151.2093
+        ],
+        "terrain_type": "Playa",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa encantadora en una ubicación costera.",
+        "details": {
+            "year_built": 1972,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 40,
+        "address": "3535 Maple St",
+        "price": 400000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [
+            -33.4489,
+            -70.6693
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Casa moderna en un barrio residencial.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 41,
+        "address": "3636 Pine St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            35.682839,
+            139.759455
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Acogedora casa en un barrio tradicional de Tokyo.",
+        "details": {
+            "year_built": 1988,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 42,
+        "address": "3737 Oak St",
+        "price": 230000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            -26.2041,
+            28.0473
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa con vista a las montañas en una zona tranquila.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 43,
+        "address": "3838 Birch St",
+        "price": 350000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [
+            40.7128,
+            -74.0060
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Amplia casa en el corazón de Manhattan.",
+        "details": {
+            "year_built": 2003,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 44,
+        "address": "3939 Maple St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            -34.6037,
+            -58.3816
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa con encanto en un barrio bohemio.",
+        "details": {
+            "year_built": 1990,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 45,
+        "address": "4040 Pine St",
+        "price": 380000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            51.5074,
+            -0.1278
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Casa elegante cerca de lugares icónicos de Londres.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 46,
+        "address": "4141 Oak St",
+        "price": 190000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            55.7558,
+            37.6173
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa en un entorno natural cercano a las montañas.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 47,
+        "address": "4242 Birch St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            -33.8675,
+            151.2070
+        ],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con acceso directo a una playa paradisíaca.",
+        "details": {
+            "year_built": 1998,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 48,
+        "address": "4343 Pine St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            35.6895,
+            139.6917
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa moderna en el corazón de Tokyo con jardín japonés.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 49,
+        "address": "4444 Oak St",
+        "price": 420000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            48.8566,
+            2.3522
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Elegante casa en el centro histórico de París.",
+        "details": {
+            "year_built": 2005,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 50,
+        "address": "4545 Birch St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1100,
+        "location": [
+            37.7749,
+            -122.4194
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa en un vecindario bohemio en San Francisco.",
+        "details": {
+            "year_built": 1978,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 51,
+        "address": "4646 Pine St",
+        "price": 330000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [
+            19.4326,
+            -99.1332
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa en el centro histórico de la Ciudad de México.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 52,
+        "address": "4747 Oak St",
+        "price": 270000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            -12.0464,
+            -77.0428
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa bien ubicada en la capital peruana.",
+        "details": {
+            "year_built": 2000,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 53,
+        "address": "4848 Birch St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [
+            -34.8941,
+            -56.0675
+        ],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con vista al Río de la Plata en Montevideo.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 54,
+        "address": "4949 Pine St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            4.710989,
+            -74.072092
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa en una zona residencial de Bogotá.",
+        "details": {
+            "year_built": 2002,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 55,
+        "address": "5050 Oak St",
+        "price": 430000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2000,
+        "location": [
+            -15.7801,
+            -47.9292
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Casa moderna en la capital de Brasil.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 56,
+        "address": "5151 Pine St",
+        "price": 190000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1000,
+        "location": [
+            10.4806,
+            -66.9036
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": false,
+        "discount": 0,
+        "description": "Casa con vistas panorámicas en Caracas.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 57,
+        "address": "5252 Birch St",
+        "price": 340000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            -33.4489,
+            -70.6693
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa con vistas a la cordillera de los Andes.",
+        "details": {
+            "year_built": 1998,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 58,
+        "address": "5353 Oak St",
+        "price": 320000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [
+            -0.1807,
+            -78.4678
+        ],
+        "terrain_type": "Montaña",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa rodeada de naturaleza en Quito.",
+        "details": {
+            "year_built": 2005,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 59,
+        "address": "5454 Pine St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1400,
+        "location": [
+            -34.9011,
+            -56.1645
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.05,
+        "description": "Casa en un barrio residencial de Montevideo.",
+        "details": {
+            "year_built": 1990,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 60,
+        "address": "5555 Oak St",
+        "price": 400000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [
+            -23.5505,
+            -46.6333
+        ],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Casa en una metrópoli en constante crecimiento.",
+        "details": {
+            "year_built": 2008,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    }
+]

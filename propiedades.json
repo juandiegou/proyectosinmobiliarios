@@ -1,0 +1,547 @@
+[
+    {
+        "id": 1,
+        "address": "123 Main St",
+        "price": 250000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1500,
+        "location": [40.7128, -74.0060],
+        "terrain_type": "Montaña",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Encantadora casa con vista a la montaña.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 2,
+        "address": "456 Elm St",
+        "price": 350000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2200,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Amplia casa cerca de la playa.",
+        "details": {
+            "year_built": 2000,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 3,
+        "address": "789 Oak St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Acogedora casa en el corazón de la ciudad.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 4,
+        "address": "101 Pine St",
+        "price": 420000,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "size_sqft": 3000,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Espléndida casa en medio del bosque.",
+        "details": {
+            "year_built": 2008,
+            "garage": "4 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 5,
+        "address": "222 Maple St",
+        "price": 310000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1800,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Moderna casa en el centro de la ciudad.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 6,
+        "address": "444 Elm St",
+        "price": 280000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Cómoda casa en una zona tranquila.",
+        "details": {
+            "year_built": 1992,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 7,
+        "address": "555 Oak St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2100,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Luminosa casa cerca de la playa.",
+        "details": {
+            "year_built": 2005,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 8,
+        "address": "777 Pine St",
+        "price": 200000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1300,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Pequeña cabaña en medio del bosque.",
+        "details": {
+            "year_built": 1980,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 9,
+        "address": "999 Maple St",
+        "price": 370000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1900,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Elegante casa en el centro de la ciudad.",
+        "details": {
+            "year_built": 2012,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 10,
+        "address": "666 Elm St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1550,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Acogedora casa en una zona tranquila.",
+        "details": {
+            "year_built": 1998,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 11,
+        "address": "444 Oak St",
+        "price": 420000,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "size_sqft": 3200,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.25,
+        "description": "Amplia casa con vista al mar.",
+        "details": {
+            "year_built": 2015,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 12,
+        "address": "888 Pine St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Cabaña rústica en el bosque.",
+        "details": {
+            "year_built": 1975,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 13,
+        "address": "111 Maple St",
+        "price": 350000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Moderna casa en el corazón de la ciudad.",
+        "details": {
+            "year_built": 2000,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 14,
+        "address": "555 Elm St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2100,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Luminosa casa en una zona tranquila.",
+        "details": {
+            "year_built": 2008,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 15,
+        "address": "777 Oak St",
+        "price": 200000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1300,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Pequeña casa junto a la playa.",
+        "details": {
+            "year_built": 1985,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 16,
+        "address": "222 Elm St",
+        "price": 370000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1900,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Encantadora casa en medio del bosque.",
+        "details": {
+            "year_built": 2010,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 17,
+        "address": "666 Maple St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1550,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Cómoda casa en una zona residencial.",
+        "details": {
+            "year_built": 1995,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 18,
+        "address": "444 Pine St",
+        "price": 420000,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "size_sqft": 3200,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.25,
+        "description": "Elegante casa en el centro de la ciudad.",
+        "details": {
+            "year_built": 2015,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 19,
+        "address": "888 Elm St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Casa acogedora cerca de la playa.",
+        "details": {
+            "year_built": 1982,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 20,
+        "address": "999 Oak St",
+        "price": 350000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Moderna casa en medio del bosque.",
+        "details": {
+            "year_built": 2000,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 21,
+        "address": "555 Maple St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2100,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Luminosa casa en un vecindario tranquilo.",
+        "details": {
+            "year_built": 2007,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 22,
+        "address": "777 Elm St",
+        "price": 200000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1300,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Pequeña casa en un barrio residencial.",
+        "details": {
+            "year_built": 1988,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 23,
+        "address": "222 Pine St",
+        "price": 370000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1900,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Espléndida casa cerca de la playa.",
+        "details": {
+            "year_built": 2012,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 24,
+        "address": "666 Oak St",
+        "price": 260000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1550,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Acogedora casa rodeada de naturaleza.",
+        "details": {
+            "year_built": 1990,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 25,
+        "address": "444 Maple St",
+        "price": 420000,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "size_sqft": 3200,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.25,
+        "description": "Amplia casa en el centro de la ciudad.",
+        "details": {
+            "year_built": 2017,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 26,
+        "address": "888 Elm St",
+        "price": 180000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1200,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Casa moderna en un vecindario tranquilo.",
+        "details": {
+            "year_built": 1983,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 27,
+        "address": "999 Pine St",
+        "price": 350000,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "size_sqft": 1600,
+        "location": [34.0522, -118.2437],
+        "terrain_type": "Playa",
+        "is_offer": true,
+        "discount": 0.1,
+        "description": "Moderna casa cerca de la playa.",
+        "details": {
+            "year_built": 2002,
+            "garage": "2 plazas",
+            "pool": false
+        }
+    },
+    {
+        "id": 28,
+        "address": "555 Elm St",
+        "price": 390000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 2100,
+        "location": [39.9526, -75.1652],
+        "terrain_type": "Bosque",
+        "is_offer": true,
+        "discount": 0.15,
+        "description": "Casa rústica en el bosque.",
+        "details": {
+            "year_built": 2009,
+            "garage": "3 plazas",
+            "pool": true
+        }
+    },
+    {
+        "id": 29,
+        "address": "777 Maple St",
+        "price": 200000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "size_sqft": 1300,
+        "location": [37.7749, -122.4194],
+        "terrain_type": "Ciudad",
+        "is_offer": false,
+        "discount": 0.0,
+        "description": "Pequeña casa en un barrio residencial.",
+        "details": {
+            "year_built": 1987,
+            "garage": "1 plaza",
+            "pool": false
+        }
+    },
+    {
+        "id": 30,
+        "address": "222 Pine St",
+        "price": 370000,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "size_sqft": 1900,
+        "location": [41.8781, -87.6298],
+        "terrain_type": "Ciudad",
+        "is_offer": true,
+        "discount": 0.2,
+        "description": "Encantadora casa en una zona residencial.",
+        "details": {
+            "year_built": 2011,
+            "garage": "2 plazas",
+            "pool": true
+        }
+    }
+    
+
+    
+    
+    
+]    
