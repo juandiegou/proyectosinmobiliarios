@@ -16,12 +16,11 @@ Proyecto de prueba Propital de visualización de proyectos inmobiliarios
 Este es un proyecto que permite la visuakización de puntos en el mapa que muestras las opciones de compra/arrendamiento de proyectos inmobiliarios, esta constuido en su backend con FastAPI (python), y en el frontend con NEXT js para react
 
 ## Estructura del Proyecto
-
+```bash
 Prueba/
 |-- FRONT/
 |   |-- propital/
-|   |   |-- Raíz de proyecto FRONT
-|   |   |-- # carpeta Raíz (Acá se debe correr el comando del cliente)
+|   |   |-- # carpeta Raíz de proyecto FRONT
 |   |   |-- # Contenido de la carpeta propital
 |   |   |-- # Otros archivos y carpetas en propital
 |   |   |-- En este nivel crear el archivo .env
@@ -30,17 +29,19 @@ Prueba/
 |
 |-- API/
 |   |-- propital/
-|   |   |-- # carpeta Raíz (Acá se debe correr el comando del servidor)
+|   |   |-- # carpeta Raíz de proyecto API
 |   |   |-- # Contenido de la carpeta propital
 |   |   |-- # Otros archivos y carpetas en propital
 |   |   |-- En este nivel crear el archivo .env
-|   |-- database/
-|   |   |-- mongo_conection.py
-|   |   |-- # Otros archivos y carpetas en database
+|   |   |-- database/
+|   |   |   |-- mongo_conection.py
+|   |   |   |-- # Otros archivos y carpetas en database
 |   |-- # Contenido de la carpeta API
 |   |-- # Otros archivos y carpetas en API
 |
 |-- # Otros archivos y carpetas en la raíz del proyecto
+
+```
 
 
 ## Requisitos
@@ -181,7 +182,7 @@ El script leerá los archivos JSON y realizará la inserción de los datos en la
 
 Espero que esta guía te ayude a utilizar los archivos JSON y el script de Python para realizar la inserción en el base de datos de MongoDB de manera exitosa.
 
-***Adiional***
+***Adicional***
 Es posible que necesites reiniciar la aplicación (tanto frontend como backend) después de cambiar las variables de entorno en los archivos .env para que los cambios tener efecto.
 
 Con estas configuraciones en los archivos .env, el frontend y el backend podrán acceder a las variables de entorno que has definido y utilizarlas para sus respectivas configuraciones. 
