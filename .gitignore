@@ -16,8 +16,8 @@ build/
 *.pyc
 
 # Compiled React
-/dist/
-/build/
+*./dist/
+*./build/
 
 # Environment variables (put your .env files in a safe location outside of the project)
 .env
@@ -38,7 +38,7 @@ yarn.lock
 /coverage
 
 # next.js
-/.next/
+*/.next/
 /out/
 
 # production
