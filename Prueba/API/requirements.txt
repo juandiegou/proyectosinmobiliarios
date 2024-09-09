@@ -28,7 +28,7 @@ pluggy==1.2.0
 pyasn1==0.4.8
 pycparser==2.21
 pycryptodome==3.17
-pydantic==1.10.4
+pydantic==1.10.13
 pymongo==4.3.3
 pytest==7.4.0
 python-dotenv==0.21.1
