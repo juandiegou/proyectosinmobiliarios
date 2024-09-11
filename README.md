@@ -189,4 +189,10 @@ Espero que estas instrucciones te sean útiles. Si tienes más preguntas o neces
 ****Visualización del proyecto****
 ![interfaz Gráfica](images/interfaz.png)
 
+## Página desplegada
+```
+    https://proyectosinmobiliarios.vercel.app/viewer
+````
+![Link](https://proyectosinmobiliarios.vercel.app/viewer)
+
 
