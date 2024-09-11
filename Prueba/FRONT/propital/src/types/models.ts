@@ -21,19 +21,21 @@ export interface Property extends Location{
     discount: number,
     description: string,
     details: any,
+    latitude: number,
+    longitude: number,
 }
 
 export interface BasePerson extends TimeStamps {
-    name: string;
-    documentType: string;
-    document: string;
+    name: string,
+    documentType: string,
+    document: string,
 }
 export interface User extends BasePerson{
 
 }
 
 export interface Admin extends BasePerson {
-    user: User;
+    user: User,
 }
 
 

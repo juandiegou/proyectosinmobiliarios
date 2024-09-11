@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import { Property } from '@/types';
 import { useToast } from '@/hooks';
 import { propertyToString } from '@/services/property-service';
 import Map, { Marker, Popup } from 'react-map-gl';
 
-interface Props{
-    properties: Property[]
-}
 
 const { addToast } = useToast();
 
-export function Properties(data:any) {
-  const properties:any[] = data.data;
+interface PropertiesProps {
+    data: { data: Property[] };
+}
 
-  const openPopup = (property: Property) => {
-        addToast(propertyToString(property),"info");
-    };
+
+export function Properties({ data }: PropertiesProps) {
+    const properties: Property[] = data.data;
+    
+    function openPopup(property: Property) {
+        addToast(propertyToString(property), "info");
+    }
   
     return (
         <div className='container_map'> 
@@ -33,33 +34,28 @@ export function Properties(data:any) {
                     mapboxAccessToken='pk.eyJ1IjoianVhbmRpZWdvdWciLCJhIjoiY2xrZXEyMmh4MTFqYjNkcGpxNXhhMHAwcCJ9.ZCasxeuwdK9dZ1uYrppH-Q'
                     testMode={true}
                 >
-                    {/* <div className='custom-marker mapboxgl-marker'>
+                    <>
+                    
+                        {properties?.map((property: Property, index: number) => (
+                            <div key={index}
+                                className='custom-marker mapboxgl-marker'
+                                onClick={() => { openPopup(property); } }
+                            >
 
-                    <Marker
-                        longitude={-75.49331}
-                        latitude={5.06885}
-                        anchor='center' 
-                        draggable={false}
-                        color={'black'}
-                    />
-                    </div> */}
-                    {properties?.data?.map((property: Property, index: number) => (
-                        <div key={index} 
-                            className='custom-marker mapboxgl-marker'
-                            onClick={()=>{openPopup(property)}}
-                        >
+                                <Marker
+                                    key={index}
+                                    longitude={Array.isArray(property.location) ? property.location[1] : 0}
+                                    latitude={Array.isArray(property.location) ? property.location[0] : 0}
+                                    anchor='center'
+                                    draggable={false}
+                                    color={'black'}
+                                    onClick={() => { openPopup(property); } } />
+                            </div>
+                        ))}
+                    
 
-                            <Marker
-                                key={index}
-                                longitude={property.location[1]}
-                                latitude={property.location[0]}
-                                anchor='center'
-                                draggable={false}
-                                color={'black'}
-                                onClick={()=>{openPopup(property)}}
-                                />
-                        </div>
-                    ))}
+                    </>
+
                 </Map>
             </div>
 
@@ -67,5 +63,5 @@ export function Properties(data:any) {
 
     );
 
-}
+};
 

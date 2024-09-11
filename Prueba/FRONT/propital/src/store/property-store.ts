@@ -1,4 +1,4 @@
-import { type PropertyStore } from '@/types';
+import { type PropertyStore, type Location } from '@/types';
 import { create } from 'zustand';
 
 export const usePropertyStore = create<PropertyStore>(set => ({
@@ -8,14 +8,15 @@ export const usePropertyStore = create<PropertyStore>(set => ({
       price: 0,
       bedrooms: 0,
       bathrooms: 0,
-      location: { latitude: 0, longitude: 0 },
+      location: { latitude: 0, longitude: 0 } as unknown as Location | number[],
       size_sqft: 0,
       terrain_type: '',
       is_offer: false,
       discount: 0,
       description: '',
-      details: undefined,
+      details: '',
       latitude: 0,
-      longitude: 0
+      longitude: 0,
+      lat_lon: []
     },
 }));

@@ -1,10 +1,10 @@
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput, { type Value } from 'react-phone-number-input'
 interface Props {
     id: string;
     label: string;
     placeholder: string;
-    value: string;
-    onChange: (value: string) => void;
+    value: Value |undefined;
+    onChange: (value: Value | undefined) => void;
     onBlur?: (event: React.FocusEvent<HTMLSelectElement>) => void;
 }
 
