@@ -4,14 +4,13 @@ import { propertyToString } from '@/services/property-service';
 import Map, { Marker, Popup } from 'react-map-gl';
 
 
-const { addToast } = useToast();
-
 interface PropertiesProps {
     data: { data: Property[] };
 }
 
 
 export function Properties({ data }: PropertiesProps) {
+    const { addToast } = useToast();
     const properties: Property[] = data.data;
     
     function openPopup(property: Property) {

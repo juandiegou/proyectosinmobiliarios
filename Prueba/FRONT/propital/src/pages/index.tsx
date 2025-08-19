@@ -12,7 +12,7 @@ export default function Home({...property}:any) {
     }, 2000);
 
     return () => clearTimeout(redirectTimeout);
-  }, []);
+  }, [router]);
   return <main className='h-full bg-background'>
     <Viewer properties={property} />
   </main>;

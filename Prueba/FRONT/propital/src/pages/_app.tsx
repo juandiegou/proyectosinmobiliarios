@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
             Router.events.off('routeChangeComplete', () => setLoading(false));
             Router.events.off('routeChangeError', () => setLoading(false));
         };
-    }, [Router.events]);
+    }, []);
 
     if (loading) {
         return <Loader />;

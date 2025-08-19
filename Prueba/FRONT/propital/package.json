@@ -2,6 +2,10 @@
   "name": "propital",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,14 +14,14 @@
   },
   "dependencies": {
     "@headlessui/react": "1.7.15",
-    "@types/node": "20.4.4",
+    "@types/node": "22.8.7",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "formik": "^2.3.10",
     "mapbox-gl": "^2.15.0",
-    "next": "15.2.4",
+    "next": "15.4.7",
     "postcss": "8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -29,5 +33,9 @@
     "typescript": "5.1.6",
     "yup": "^1.1.0",
     "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "15.4.7"
   }
 }

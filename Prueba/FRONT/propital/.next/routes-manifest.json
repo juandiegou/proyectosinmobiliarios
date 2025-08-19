@@ -13,6 +13,11 @@
     }
   ],
   "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
   "dynamicRoutes": [],
   "staticRoutes": [
     {
@@ -31,11 +36,11 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/Y6We55kvedK4rS2G7aA3x/index\\.json$"
+      "dataRouteRegex": "^/_next/data/dQiOZI2vnF3rlZnKBoNzE/index\\.json$"
     },
     {
       "page": "/viewer",
-      "dataRouteRegex": "^/_next/data/Y6We55kvedK4rS2G7aA3x/viewer\\.json$"
+      "dataRouteRegex": "^/_next/data/dQiOZI2vnF3rlZnKBoNzE/viewer\\.json$"
     }
   ],
   "rsc": {
@@ -53,6 +58,5 @@
   "rewriteHeaders": {
     "pathHeader": "x-nextjs-rewritten-path",
     "queryHeader": "x-nextjs-rewritten-query"
-  },
-  "rewrites": []
+  }
 }
