@@ -49,7 +49,7 @@ Prueba/
 Enumera todos los requisitos necesarios para poder ejecutar el proyecto, tanto en el lado del frontend como del backend. Esto puede incluir dependencias, herramientas, versiones de software, etc.
 
 Requisitos para el frontend:
-- Node.js v18.17.0 o superior
+- Node.js v22.0.0 o superior
 
 Requisitos para el backend:
 - python Python 3.11.4

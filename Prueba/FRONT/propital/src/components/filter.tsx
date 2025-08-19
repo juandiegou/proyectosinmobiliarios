@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 
-const { addToast } = useToast();
 export function Filter(){
+    const { addToast } = useToast();
     const [min_price, setMin_price]=useState()
     const [max_price, setMax_price]=useState()
     const [min_bedrooms, setMin_bedrooms]=useState()
@@ -28,7 +28,7 @@ export function Filter(){
 
             setFilter(newFilter);
         }
-      }, [min_price, max_price, min_bedrooms]);
+      }, [min_price, max_price, min_bedrooms, filter]);
 
     const handleFilter=(type:string,value: string)=>{
         const stateSetterMap:any = {

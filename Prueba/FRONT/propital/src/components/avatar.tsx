@@ -1,4 +1,6 @@
 /* eslint-disable indent */
+import Image from 'next/image';
+
 interface Props {
     size: string;
     name: string;
@@ -23,11 +25,12 @@ export function Avatar({ size, name, imgPath }: Props) {
         >
             <div className='text-white text-xl font-bold absolute top-0 left-0 w-full h-full flex justify-center items-center'>
                 {imgPath ? (
-                    <img
-                        className='w-full h-full'
+                    <Image
+                        className='w-full h-full object-cover'
                         alt='perfil'
                         src={imgPath}
-                    ></img>
+                        fill
+                    />
                 ) : (
                     name[0]
                 )}
