@@ -43,7 +43,7 @@ shellescape==3.8.1
 six==1.16.0
 sniffio==1.3.0
 ujson==5.7.0
-urllib3==2.5.0
+urllib3==2.6.0
 uvicorn==0.20.0
 watchfiles==0.18.1
 websockets==10.4
