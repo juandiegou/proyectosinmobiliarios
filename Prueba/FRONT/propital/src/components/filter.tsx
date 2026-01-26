@@ -67,7 +67,7 @@ export function Filter(){
             />
             <Input
                 name='min_bedrooms'
-                label='Minino de habitaciones'
+                label='Mínimo de habitaciones'
                 placeholder='Ingresa un valor'
                 value={min_bedrooms?min_bedrooms:''}
                 onChange={(e) => {handleFilter('min_bedrooms',e.target.value)}}
