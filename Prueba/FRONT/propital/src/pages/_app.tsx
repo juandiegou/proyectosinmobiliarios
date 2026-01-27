@@ -12,13 +12,20 @@ export default function App({ Component, pageProps }: AppProps) {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        Router.events.on('routeChangeStart', () => setLoading(true));
-        Router.events.on('routeChangeComplete', () => setLoading(false));
-        Router.events.on('routeChangeError', () => setLoading(false));
+        // Guardar referencias a las funciones para poder removerlas correctamente
+        const handleStart = () => setLoading(true);
+        const handleComplete = () => setLoading(false);
+        const handleError = () => setLoading(false);
+
+        Router.events.on('routeChangeStart', handleStart);
+        Router.events.on('routeChangeComplete', handleComplete);
+        Router.events.on('routeChangeError', handleError);
+
+        // Cleanup: remover los event listeners usando las mismas referencias
         return () => {
-            Router.events.off('routeChangeStart', () => setLoading(true));
-            Router.events.off('routeChangeComplete', () => setLoading(false));
-            Router.events.off('routeChangeError', () => setLoading(false));
+            Router.events.off('routeChangeStart', handleStart);
+            Router.events.off('routeChangeComplete', handleComplete);
+            Router.events.off('routeChangeError', handleError);
         };
     }, []);
 

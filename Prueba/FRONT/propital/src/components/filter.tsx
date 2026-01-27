@@ -12,6 +12,8 @@ export function Filter(){
     const [filter, setFilter] = useState('')
     const router = useRouter();
 
+    // No incluimos 'filter' en las dependencias para evitar un ciclo infinito
+    // filter se actualiza como resultado de los cambios en los otros estados
     useEffect(() => {
         // Filtrar los valores y construir el filtro actualizado
         const newFilter = Object.entries({
@@ -28,7 +30,8 @@ export function Filter(){
 
             setFilter(newFilter);
         }
-      }, [min_price, max_price, min_bedrooms, filter]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [min_price, max_price, min_bedrooms]);
 
     const handleFilter=(type:string,value: string)=>{
         const stateSetterMap:any = {
@@ -64,7 +67,7 @@ export function Filter(){
             />
             <Input
                 name='min_bedrooms'
-                label='Minino de habitaciones'
+                label='Mínimo de habitaciones'
                 placeholder='Ingresa un valor'
                 value={min_bedrooms?min_bedrooms:''}
                 onChange={(e) => {handleFilter('min_bedrooms',e.target.value)}}
