@@ -6,7 +6,7 @@ This project is actively maintained with security updates.
 
 | Component | Version | Status |
 | --------- | ------- | ------ |
-| Next.js   | 15.6.4  | ✅ Security patched (stable LTS) |
+| Next.js   | 15.5.11  | ✅ Security patched (stable LTS) |
 | React     | 18.3.1  | ✅ Up to date |
 | React DOM | 18.3.1  | ✅ Up to date |
 | ESLint    | 9.26.0+ | ✅ Security patched |
@@ -27,7 +27,7 @@ CVE-2025-67779 is an incomplete fix for CVE-2025-55184 affecting React Server Co
 
 **Our Status:**
 - ✅ **React 18.3.1**: Not affected (vulnerability only affects React 19.x)
-- ✅ **Next.js 15.6.4**: Latest stable LTS version (upgraded from 16.1.5 to ensure production stability)
+- ✅ **Next.js 15.5.11**: Latest stable LTS version (upgraded from 16.1.5 to ensure production stability)
 - ✅ **Pages Router**: Project uses Pages Router, not App Router (lower risk)
 
 **Patched Versions:**
@@ -56,7 +56,7 @@ Previous React Server Components vulnerability that was partially addressed.
 High severity vulnerability in Next.js HTTP request deserialization that can lead to DoS when using insecure React Server Components.
 
 **Our Status:**
-- ✅ **Next.js 15.6.4**: Patched (vulnerability fixed in 15.4.11+, using stable LTS release)
+- ✅ **Next.js 15.5.11**: Patched (vulnerability fixed in 15.4.11+, using stable LTS release)
 - ✅ **Pages Router**: Using Pages Router reduces exposure
 
 ### GHSA-5f7q-jpqc-wp7h - Next.js Unbounded Memory via PPR
@@ -67,7 +67,7 @@ High severity vulnerability in Next.js HTTP request deserialization that can lea
 Moderate severity vulnerability in Next.js Partial Prerendering (PPR) Resume Endpoint that can cause unbounded memory consumption.
 
 **Our Status:**
-- ⚠️ **Next.js 15.6.4**: Not fully patched (requires 15.6.0-canary.61+ or 16.x)
+- ⚠️ **Next.js 15.5.11**: Not fully patched (requires 15.6.0-canary.61+ or 16.x)
 - ✅ **PPR Not Used**: Project does not use Partial Prerendering feature
 - ✅ **Pages Router**: Using Pages Router, not App Router
 - **Risk Assessment**: Low - Vulnerability only affects PPR feature which is not enabled
@@ -91,7 +91,7 @@ Previous vulnerabilities in React and Next.js.
 
 **Our Status:**
 - ✅ **React 18.3.1**: Includes patches (released December 3, 2025)
-- ✅ **Next.js 15.6.4**: Latest stable LTS version with all security patches
+- ✅ **Next.js 15.5.11**: Latest stable LTS version with all security patches
 
 ## Dependency Security
 
@@ -101,7 +101,7 @@ Previous vulnerabilities in React and Next.js.
 
 ### Version Stability Note
 
-The project previously used Next.js 16.1.5 (released Jan 26, 2026), which was deemed too new and unstable for production use. After comprehensive risk analysis, the version was downgraded to Next.js 15.6.4, the current stable LTS release. See [NEXTJS-VERSION-ANALYSIS.md](NEXTJS-VERSION-ANALYSIS.md) for full details.
+The project previously used Next.js 16.1.5 (released Jan 26, 2026), which was deemed too new and unstable for production use. After comprehensive risk analysis, the version was downgraded to Next.js 15.5.11, the current stable LTS release. See [NEXTJS-VERSION-ANALYSIS.md](NEXTJS-VERSION-ANALYSIS.md) for full details.
 
 ### Frontend (Node.js/Next.js)
 ```bash

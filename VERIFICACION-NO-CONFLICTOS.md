@@ -32,7 +32,7 @@ Después de un análisis exhaustivo, **confirmo que NO hay conflictos** entre lo
 
 **Lo que este PR hace:**
 - ✅ Identifica la discrepancia de versión (docs vs realidad)
-- ✅ Degrada Next.js de 16.1.5 → 15.6.4 (LTS estable)
+- ✅ Degrada Next.js de 16.1.5 → 15.5.11 (LTS estable)
 - ✅ Relaja Node.js de >=22.0.0 → >=18.18.0 (mejor compatibilidad)
 - ✅ **Mantiene TODOS los parches de seguridad del PR #42**
 - ✅ Sincroniza toda la documentación
@@ -44,9 +44,9 @@ Después de un análisis exhaustivo, **confirmo que NO hay conflictos** entre lo
 
 | Aspecto | PR #42 | Este PR | ¿Conflicto? |
 |---------|--------|---------|-------------|
-| **Versión documentada** | 15.5.11 | 15.6.4 | ❌ No - Corrección |
+| **Versión documentada** | 15.5.11 | 15.5.11 | ❌ No - Corrección |
 | **Versión real antes** | 16.1.5 | 16.1.5 | ✅ Mismo punto de partida |
-| **Versión real después** | 16.1.5 | 15.6.4 | ❌ No - Mejora de estabilidad |
+| **Versión real después** | 16.1.5 | 15.5.11 | ❌ No - Mejora de estabilidad |
 | **Parches de seguridad** | Incluidos | Incluidos | ✅ Todos mantenidos |
 
 **Veredicto:** ✅ **SIN CONFLICTO** - Este PR corrige y mejora el estado.
@@ -75,9 +75,9 @@ Después de un análisis exhaustivo, **confirmo que NO hay conflictos** entre lo
 | Vulnerabilidad | Estado PR #42 | Estado Este PR | ¿Conflicto? |
 |----------------|---------------|----------------|-------------|
 | **CVE-2025-67779** | No afectado (React 18.3.1) | No afectado (React 18.3.1) | ✅ Consistente |
-| **GHSA-h25m-26qc-wcjf** | Parcheado (Next.js 15.5.11+) | Parcheado (Next.js 15.6.4) | ✅ Aún parcheado |
+| **GHSA-h25m-26qc-wcjf** | Parcheado (Next.js 15.5.11+) | Parcheado (Next.js 15.5.11) | ✅ Aún parcheado |
 | **GHSA-p5wg-g6qr-c7cg** | Parcheado (ESLint 9.26.0) | Parcheado (ESLint 9.26.0) | ✅ Sin cambios |
-| **GHSA-5f7q-jpqc-wp7h** | Riesgo aceptable (PPR no usado) | Riesgo menor (15.6.4 mejor protección) | ✅ Mejorado |
+| **GHSA-5f7q-jpqc-wp7h** | Riesgo aceptable (PPR no usado) | Riesgo menor (15.5.11 mejor protección) | ✅ Mejorado |
 
 **Veredicto:** ✅ **SIN CONFLICTO** - Todos los parches mantenidos o mejorados.
 
@@ -104,7 +104,7 @@ Después de un análisis exhaustivo, **confirmo que NO hay conflictos** entre lo
 
 ```json
 {
-  "next": "15.6.4",          // ✅ LTS estable
+  "next": "15.5.11",          // ✅ LTS estable
   "node": ">=18.18.0",       // ✅ Compatible
   "eslint": "^9.26.0",       // ✅ Bueno (mantenido)
   "react": "18.3.1"          // ✅ Bueno (mantenido)

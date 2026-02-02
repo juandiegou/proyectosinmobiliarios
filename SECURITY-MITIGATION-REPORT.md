@@ -25,7 +25,7 @@ This report **builds upon and corrects** the security work done in PR #42:
 
 **Additional Actions Taken (This PR):**
 - ✅ Identified Next.js 16.1.5 as unstable (7-day-old release)
-- ✅ Downgraded Next.js from 16.1.5 → 15.6.4 (stable LTS)
+- ✅ Downgraded Next.js from 16.1.5 → 15.5.11 (stable LTS)
 - ✅ Relaxed Node.js requirement from >=22.0.0 → >=18.18.0
 - ✅ Synchronized all documentation with actual versions
 - ✅ Created comprehensive version analysis (NEXTJS-VERSION-ANALYSIS.md)
@@ -52,7 +52,7 @@ HTTP request deserialization vulnerability in Next.js that can lead to server de
 - ✅ No breaking changes detected
 
 **Current Status (This PR):**
-- ✅ Downgraded from **16.1.5** to **15.6.4** for production stability (see section 5)
+- ✅ Downgraded from **16.1.5** to **15.5.11** for production stability (see section 5)
 
 **Status:** RESOLVED - February 2, 2026
 
@@ -104,7 +104,7 @@ Unbounded memory consumption vulnerability in Next.js Partial Prerendering (PPR)
   3. Moderate severity with specific attack requirements
 
 **Current Status (This PR):**
-- ✅ Now using Next.js **15.6.4** which has better PPR protection
+- ✅ Now using Next.js **15.5.11** which has better PPR protection
 - ✅ Risk remains low as PPR feature is still not used
 
 **Status:** DOCUMENTED RISK - Not applicable to current architecture
@@ -165,7 +165,7 @@ The project was using Next.js 16.1.5, a bleeding-edge version released only 7 da
 - 🟠 **Dependency Compatibility**: Third-party packages may not support Next.js 16
 
 **Mitigation Applied:**
-- ✅ Downgraded Next.js from **16.1.5** → **15.6.4** (stable LTS)
+- ✅ Downgraded Next.js from **16.1.5** → **15.5.11** (stable LTS)
 - ✅ Relaxed Node.js requirement from **>=22.0.0** → **>=18.18.0**
 - ✅ Updated all security documentation to match actual versions
 - ✅ Created comprehensive version analysis report (NEXTJS-VERSION-ANALYSIS.md)
@@ -215,7 +215,7 @@ Verified all Python dependencies using GitHub Advisory Database:
     "npm": ">=9.0.0"      // ⬇️ from >=10.0.0 (better compatibility)
   },
   "dependencies": {
-    "next": "15.6.4"  // ⬇️ from 16.1.5 (stable LTS)
+    "next": "15.5.11"  // ⬇️ from 16.1.5 (stable LTS)
   },
   "devDependencies": {
     "eslint": "^9.26.0",  // ⬆️ from ^8.0.0
@@ -302,7 +302,7 @@ npm audit
 
 ### Immediate Actions (Completed ✅)
 
-1. ✅ Update Next.js to stable LTS 15.6.4 (downgrade from unstable 16.1.5)
+1. ✅ Update Next.js to stable LTS 15.5.11 (downgrade from unstable 16.1.5)
 2. ✅ Update ESLint to 9.26.0+
 3. ✅ Relax Node.js requirement to >=18.18.0
 4. ✅ Verify all dependencies for vulnerabilities

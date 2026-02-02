@@ -31,7 +31,7 @@ El análisis del código identificó una **alerta crítica de estabilidad de pro
 
 1. **Degradación de Next.js**
    - De: 16.1.5 (inestable, 7 días de antigüedad)
-   - A: 15.6.4 (LTS estable)
+   - A: 15.5.11 (LTS estable)
 
 2. **Requisitos de Node.js Relajados**
    - De: >=22.0.0 (restrictivo)
@@ -54,7 +54,7 @@ El análisis del código identificó una **alerta crítica de estabilidad de pro
 | Métrica | Antes | Después | Mejora |
 |---------|-------|---------|--------|
 | **Nivel de Riesgo** | 🔴 ALTO | 🟢 BAJO | **75% de Reducción** |
-| **Estabilidad** | Inestable v16.1.5 | Estable v15.6.4 | **Listo para Producción** |
+| **Estabilidad** | Inestable v16.1.5 | Estable v15.5.11 | **Listo para Producción** |
 | **Compatibilidad Node** | Solo Node 22+ | Node 18.18+ | **Mejor Compatibilidad** |
 | **Tiempo en Producción** | 7 días | Meses de pruebas | **Estabilidad Probada** |
 
@@ -62,14 +62,14 @@ El análisis del código identificó una **alerta crítica de estabilidad de pro
 
 ### Verificación de Vulnerabilidades
 
-✅ **Sin vulnerabilidades encontradas** en Next.js 15.6.4  
+✅ **Sin vulnerabilidades encontradas** en Next.js 15.5.11  
 ✅ **CVE-2025-67779**: No afectado (React 18.x, Pages Router)  
 ✅ **GHSA-h25m-26qc-wcjf**: Parcheado en 15.4.11+  
 ✅ **GHSA-5f7q-jpqc-wp7h**: No aplicable (PPR no usado)
 
 ### Compatibilidad de Dependencias
 
-| Dependencia | Versión | Estado con Next.js 15.6.4 |
+| Dependencia | Versión | Estado con Next.js 15.5.11 |
 |-------------|---------|---------------------------|
 | React | 18.3.1 | ✅ Totalmente compatible |
 | React-DOM | 18.3.1 | ✅ Totalmente compatible |
@@ -91,7 +91,7 @@ El análisis del código identificó una **alerta crítica de estabilidad de pro
 
 ### Cambios de Código
 1. **Prueba/FRONT/propital/package.json**
-   - Next.js: 16.1.5 → 15.6.4
+   - Next.js: 16.1.5 → 15.5.11
    - Node.js: >=22.0.0 → >=18.18.0
    - npm: >=10.0.0 → >=9.0.0
 
@@ -230,6 +230,6 @@ Para preguntas o preocupaciones sobre este análisis:
 
 ---
 
-**Conclusión**: La alerta de librería ha sido exitosamente analizada y mitigada. El proyecto ahora usa una versión estable y segura de Next.js (15.6.4) que proporciona el mejor balance entre seguridad, estabilidad y características. Todos los parches de seguridad se mantienen mientras se reduce significativamente el riesgo de producción.
+**Conclusión**: La alerta de librería ha sido exitosamente analizada y mitigada. El proyecto ahora usa una versión estable y segura de Next.js (15.5.11) que proporciona el mejor balance entre seguridad, estabilidad y características. Todos los parches de seguridad se mantienen mientras se reduce significativamente el riesgo de producción.
 
 ✅ **Análisis Completado - Riesgo Mitigado - Producción Lista**

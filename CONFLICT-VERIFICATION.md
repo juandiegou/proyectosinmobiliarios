@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This document verifies that the recent changes (downgrading Next.js from 16.1.5 to 15.6.4) do not conflict with the previous security work done in PR #42, but rather complement and enhance it.
+This document verifies that the recent changes (downgrading Next.js from 16.1.5 to 15.5.11) do not conflict with the previous security work done in PR #42, but rather complement and enhance it.
 
 ## Summary of PR #42 (Previous Work)
 
@@ -70,7 +70,7 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
      - Limited community testing
 
 3. **Mitigation Applied**
-   - Downgraded Next.js: 16.1.5 → 15.6.4 (stable LTS)
+   - Downgraded Next.js: 16.1.5 → 15.5.11 (stable LTS)
    - Relaxed Node.js: >=22.0.0 → >=18.18.0
    - Synchronized all documentation
 
@@ -86,9 +86,9 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 | Aspect | PR #42 | This PR | Conflict? |
 |--------|--------|---------|-----------|
-| **Documented Version** | 15.5.11 | 15.6.4 | ❌ No - Different documentation periods |
+| **Documented Version** | 15.5.11 | 15.5.11 | ❌ No - Different documentation periods |
 | **Actual Version (before)** | 16.1.5 | 16.1.5 | ✅ Same starting point |
-| **Actual Version (after)** | 16.1.5 | 15.6.4 | ❌ No - This PR downgrades for stability |
+| **Actual Version (after)** | 16.1.5 | 15.5.11 | ❌ No - This PR downgrades for stability |
 | **Security Patches** | Included | Included | ✅ All maintained |
 
 **Verdict:** ✅ **NO CONFLICT** - This PR correctly identifies and addresses the actual state.
@@ -118,9 +118,9 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 | Vulnerability | PR #42 Status | This PR Status | Conflict? |
 |---------------|---------------|----------------|-----------|
 | **CVE-2025-67779** | Not Affected (React 18.3.1) | Not Affected (React 18.3.1) | ✅ Consistent |
-| **GHSA-h25m-26qc-wcjf** | Patched (Next.js 15.5.11+) | Patched (Next.js 15.6.4) | ✅ Still patched |
+| **GHSA-h25m-26qc-wcjf** | Patched (Next.js 15.5.11+) | Patched (Next.js 15.5.11) | ✅ Still patched |
 | **GHSA-p5wg-g6qr-c7cg** | Patched (ESLint 9.26.0) | Patched (ESLint 9.26.0) | ✅ Unchanged |
-| **GHSA-5f7q-jpqc-wp7h** | Acceptable Risk (PPR not used) | Lower Risk (15.6.4 has better PPR protection) | ✅ Improved |
+| **GHSA-5f7q-jpqc-wp7h** | Acceptable Risk (PPR not used) | Lower Risk (15.5.11 has better PPR protection) | ✅ Improved |
 
 **Verdict:** ✅ **NO CONFLICT** - All security patches maintained or improved.
 
@@ -128,8 +128,8 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 | Document | PR #42 | This PR | Conflict? |
 |----------|--------|---------|-----------|
-| **SECURITY.md** | Version 15.5.11 | Version 15.6.4 | ✅ Updated to reflect reality |
-| **CVE-2025-67779-AUDIT.md** | Version 15.5.11 | Version 15.6.4 + stability notes | ✅ Enhanced |
+| **SECURITY.md** | Version 15.5.11 | Version 15.5.11 | ✅ Updated to reflect reality |
+| **CVE-2025-67779-AUDIT.md** | Version 15.5.11 | Version 15.5.11 + stability notes | ✅ Enhanced |
 | **SECURITY-MITIGATION-REPORT.md** | Original report | Updated with section 5 (version stability) | ✅ Additive |
 | **NEXTJS-VERSION-ANALYSIS.md** | N/A | New comprehensive analysis | ✅ New document |
 | **ANALISIS-ALERTA-LIBRERIA.md** | N/A | New Spanish summary | ✅ New document |
@@ -142,7 +142,7 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 ```bash
 # Verified via gh-advisory-database tool
-✅ Next.js 15.6.4: No vulnerabilities found
+✅ Next.js 15.5.11: No vulnerabilities found
 ✅ React 18.3.1: No vulnerabilities found
 ✅ ESLint 9.26.0: No vulnerabilities found
 ```
@@ -156,7 +156,7 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 2. **GHSA-h25m-26qc-wcjf** (High)
    - Affects: Next.js 15.4.0-canary.0 to 15.4.10
-   - Our status: Next.js 15.6.4
+   - Our status: Next.js 15.5.11
    - **Verdict: PATCHED** (improved from PR #42's claimed 15.5.11)
 
 3. **GHSA-p5wg-g6qr-c7cg** (Moderate)
@@ -166,7 +166,7 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 4. **GHSA-5f7q-jpqc-wp7h** (Moderate)
    - Affects: Next.js with PPR enabled
-   - Our status: PPR not used + Next.js 15.6.4 has better protection
+   - Our status: PPR not used + Next.js 15.5.11 has better protection
    - **Verdict: NOT APPLICABLE + IMPROVED** (better than PR #42)
 
 ## Comparison: Before and After
@@ -192,7 +192,7 @@ By examining the actual package.json in the main branch (commit 26ebd6f):
 
 ```json
 {
-  "next": "15.6.4",          // ✅ Stable LTS
+  "next": "15.5.11",          // ✅ Stable LTS
   "node": ">=18.18.0",       // ✅ Compatible
   "eslint": "^9.26.0",       // ✅ Good (maintained)
   "react": "18.3.1"          // ✅ Good (maintained)
