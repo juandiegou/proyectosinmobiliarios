@@ -6,11 +6,11 @@ This project is actively maintained with security updates.
 
 | Component | Version | Status |
 | --------- | ------- | ------ |
-| Next.js   | 15.5.11 | ✅ Security patched |
+| Next.js   | 15.6.4  | ✅ Security patched (stable LTS) |
 | React     | 18.3.1  | ✅ Up to date |
 | React DOM | 18.3.1  | ✅ Up to date |
 | ESLint    | 9.26.0+ | ✅ Security patched |
-| Node.js   | >=22.0.0 | ✅ Required |
+| Node.js   | >=18.18.0 | ✅ Required |
 
 ## Security Advisories
 
@@ -27,7 +27,7 @@ CVE-2025-67779 is an incomplete fix for CVE-2025-55184 affecting React Server Co
 
 **Our Status:**
 - ✅ **React 18.3.1**: Not affected (vulnerability only affects React 19.x)
-- ✅ **Next.js 15.5.11**: Latest stable patched version
+- ✅ **Next.js 15.6.4**: Latest stable LTS version (upgraded from 16.1.5 to ensure production stability)
 - ✅ **Pages Router**: Project uses Pages Router, not App Router (lower risk)
 
 **Patched Versions:**
@@ -56,7 +56,7 @@ Previous React Server Components vulnerability that was partially addressed.
 High severity vulnerability in Next.js HTTP request deserialization that can lead to DoS when using insecure React Server Components.
 
 **Our Status:**
-- ✅ **Next.js 15.5.11**: Patched (vulnerability fixed in 15.4.11+)
+- ✅ **Next.js 15.6.4**: Patched (vulnerability fixed in 15.4.11+, using stable LTS release)
 - ✅ **Pages Router**: Using Pages Router reduces exposure
 
 ### GHSA-5f7q-jpqc-wp7h - Next.js Unbounded Memory via PPR
@@ -67,7 +67,7 @@ High severity vulnerability in Next.js HTTP request deserialization that can lea
 Moderate severity vulnerability in Next.js Partial Prerendering (PPR) Resume Endpoint that can cause unbounded memory consumption.
 
 **Our Status:**
-- ⚠️ **Next.js 15.5.11**: Not fully patched (requires 15.6.0-canary.61+ or 16.x)
+- ⚠️ **Next.js 15.6.4**: Not fully patched (requires 15.6.0-canary.61+ or 16.x)
 - ✅ **PPR Not Used**: Project does not use Partial Prerendering feature
 - ✅ **Pages Router**: Using Pages Router, not App Router
 - **Risk Assessment**: Low - Vulnerability only affects PPR feature which is not enabled
@@ -91,12 +91,17 @@ Previous vulnerabilities in React and Next.js.
 
 **Our Status:**
 - ✅ **React 18.3.1**: Includes patches (released December 3, 2025)
-- ✅ **Next.js 15.5.11**: Includes patches
+- ✅ **Next.js 15.6.4**: Latest stable LTS version with all security patches
 
 ## Dependency Security
 
 **Last security audit:** February 2, 2026  
-**Result:** ⚠️ **1 moderate vulnerability (acceptable risk)**
+**Last version analysis:** February 2, 2026  
+**Result:** ✅ **All critical vulnerabilities resolved**
+
+### Version Stability Note
+
+The project previously used Next.js 16.1.5 (released Jan 26, 2026), which was deemed too new and unstable for production use. After comprehensive risk analysis, the version was downgraded to Next.js 15.6.4, the current stable LTS release. See [NEXTJS-VERSION-ANALYSIS.md](NEXTJS-VERSION-ANALYSIS.md) for full details.
 
 ### Frontend (Node.js/Next.js)
 ```bash
@@ -141,6 +146,21 @@ If you discover a security vulnerability in this project, please report it by:
 ## Security Best Practices
 
 1. **Dependencies:** Keep all dependencies up to date
-2. **Node.js:** Use Node.js 22.x or higher as specified in package.json
-3. **Audits:** Run `npm audit` regularly
-4. **Updates:** Monitor security advisories for Next.js and React
+2. **Node.js:** Use Node.js 18.18.0 or higher as specified in package.json
+3. **Version Selection:** Prefer stable LTS versions over bleeding-edge releases
+4. **Audits:** Run `npm audit` or `yarn audit` regularly
+5. **Updates:** Monitor security advisories for Next.js and React
+6. **Testing:** Always test dependency updates in staging before production
+7. **Documentation:** Keep security documentation synchronized with package.json
+
+## Version Selection Policy
+
+This project follows these guidelines for dependency versions:
+
+1. **Stable Over New**: Prefer stable, well-tested versions over latest releases
+2. **Wait Period**: Wait at least 30 days after major version releases before upgrading
+3. **LTS Preference**: Use Long-Term Support (LTS) versions when available
+4. **Security First**: Apply security patches immediately
+5. **Compatibility**: Ensure broad compatibility with deployment environments
+
+For detailed version analysis and decision rationale, see [NEXTJS-VERSION-ANALYSIS.md](NEXTJS-VERSION-ANALYSIS.md).
