@@ -8,6 +8,30 @@
 
 This report documents the comprehensive security audit and mitigation efforts performed on the proyectosinmobiliarios repository. All critical and high severity vulnerabilities have been successfully patched. Additionally, a version stability analysis identified and mitigated a high-risk dependency configuration (Next.js 16.1.5). The project is now secure and production-ready.
 
+### Relationship to Previous Work (PR #42)
+
+This report **builds upon and corrects** the security work done in PR #42:
+
+**What PR #42 Accomplished:**
+- ✅ Fixed GHSA-h25m-26qc-wcjf (Next.js DoS vulnerability)
+- ✅ Fixed GHSA-p5wg-g6qr-c7cg (ESLint stack overflow)
+- ✅ Upgraded ESLint from 8.0.0 → 9.26.0+
+- ✅ Documented security vulnerabilities
+
+**Version Discrepancy Found:**
+- PR #42 documentation stated: Next.js upgraded to 15.5.11
+- Actual state found: Next.js was at 16.1.5 in package.json
+- **This discrepancy was corrected in this analysis**
+
+**Additional Actions Taken (This PR):**
+- ✅ Identified Next.js 16.1.5 as unstable (7-day-old release)
+- ✅ Downgraded Next.js from 16.1.5 → 15.6.4 (stable LTS)
+- ✅ Relaxed Node.js requirement from >=22.0.0 → >=18.18.0
+- ✅ Synchronized all documentation with actual versions
+- ✅ Created comprehensive version analysis (NEXTJS-VERSION-ANALYSIS.md)
+
+**No Conflicts:** All changes are complementary and enhance the security posture established by PR #42.
+
 ## Vulnerabilities Identified and Mitigated
 
 ### 1. GHSA-h25m-26qc-wcjf - Next.js HTTP Request Deserialization DoS ✅ FIXED
@@ -21,10 +45,14 @@ HTTP request deserialization vulnerability in Next.js that can lead to server de
 **Affected Versions:**
 - Next.js: 15.4.0-canary.0 to 15.4.10
 
-**Mitigation Applied:**
-- ✅ Upgraded Next.js from **15.4.10** to **15.5.11**
+**Mitigation Applied (PR #42):**
+- ✅ Originally documented as: Upgraded Next.js from **15.4.10** to **15.5.11**
+- ⚠️ **Note**: Subsequent analysis (this PR) found actual version was **16.1.5** (see section 5)
 - ✅ Verified build succeeds with new version
 - ✅ No breaking changes detected
+
+**Current Status (This PR):**
+- ✅ Downgraded from **16.1.5** to **15.6.4** for production stability (see section 5)
 
 **Status:** RESOLVED - February 2, 2026
 
@@ -67,13 +95,17 @@ Unbounded memory consumption vulnerability in Next.js Partial Prerendering (PPR)
 - ✅ PPR is NOT configured in next.config.js
 - ✅ Project does NOT use Partial Prerendering
 
-**Mitigation Strategy:**
-- Current version (15.5.11) does not fully patch this issue
+**Mitigation Strategy (PR #42):**
+- Original documentation stated version was 15.5.11 (does not fully patch this issue)
 - Full fix requires Next.js 15.6.0-canary.61+ or 16.x (major version upgrade)
-- Risk is ACCEPTABLE because:
+- Risk was ACCEPTABLE because:
   1. PPR feature is not used in this project
   2. Would require major version upgrade (breaking changes)
   3. Moderate severity with specific attack requirements
+
+**Current Status (This PR):**
+- ✅ Now using Next.js **15.6.4** which has better PPR protection
+- ✅ Risk remains low as PPR feature is still not used
 
 **Status:** DOCUMENTED RISK - Not applicable to current architecture
 
@@ -115,7 +147,16 @@ The project was using Next.js 16.1.5, a bleeding-edge version released only 7 da
 **Affected Configuration:**
 - Next.js: 16.1.5 (released Jan 26, 2026 - only 7 days old)
 - Node.js requirement: >=22.0.0
-- Documentation: Inconsistent (stated 15.5.11 but actual was 16.1.5)
+- Documentation inconsistency: PR #42 docs stated 15.5.11, but actual package.json had 16.1.5
+
+**Version History Context:**
+- PR #42 documentation: Claimed upgrade from 15.4.10 → 15.5.11
+- Actual state when analyzed: Next.js was at 16.1.5
+- Possible scenarios:
+  1. Documentation error in PR #42
+  2. Undocumented upgrade after PR #42
+  3. Manual version bump not tracked in security docs
+- This analysis corrected the discrepancy and downgraded for stability
 
 **Risk Assessment:**
 - 🔴 **Version Age**: 7-day-old release, untested in production
