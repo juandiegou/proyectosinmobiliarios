@@ -21,7 +21,7 @@ Jinja2>=3.1.5
 MarkupSafe==2.1.2
 mysql-connector-python==9.1.0
 Naked==0.1.32
-orjson==3.11.5
+orjson==3.11.6
 packaging==23.1
 passlib==1.7.4
 pluggy==1.2.0
