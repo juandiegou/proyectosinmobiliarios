@@ -38,16 +38,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Node.js 18 LTS is used here because eslint-config-next and @rushstack/eslint-patch
-      # require the 'node:path' built-in module specifier (available since Node 14.18.0).
-      # Node 18 LTS is the recommended long-term-support release that satisfies this requirement.
+      # Use the Node.js version pinned in .nvmrc so eslint-config-next and
+      # @rushstack/eslint-patch (which require the 'node:path' specifier) work correctly.
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version-file: .nvmrc
 
-      # Install dependencies so Codacy's ESLint can resolve eslint-config-next
-      # and other packages declared in Prueba/FRONT/propital/package.json.
+      # Install dependencies so ESLint can resolve eslint-config-next and other
+      # packages declared in Prueba/FRONT/propital/package.json.
       - name: Install frontend dependencies
         run: npm install
         working-directory: Prueba/FRONT/propital
@@ -62,6 +61,9 @@ jobs:
           verbose: true
           output: results.sarif
           format: sarif
+          # Analyze only the frontend subdirectory so ESLint can find .eslintrc.json
+          # (there is no ESLint config at the repository root)
+          directory: Prueba/FRONT/propital
           # Adjust severity of non-security issues
           gh-code-scanning-compat: true
           # Force 0 exit code to allow SARIF file generation
