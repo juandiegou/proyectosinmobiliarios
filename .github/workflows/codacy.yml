@@ -38,12 +38,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install frontend dependencies so ESLint can resolve eslint-config-next
+      # Set up Node.js 18 LTS to avoid 'Cannot find module node:path' errors
+      # that occur with older Node versions used by the Codacy container when
+      # resolving eslint-config-next and @rushstack/eslint-patch.
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '18'
 
+      # Install frontend dependencies before Codacy runs so that
+      # eslint-config-next and @rushstack/eslint-patch are present and
+      # resolvable at /src/Prueba/FRONT/propital/node_modules.
       - name: Install frontend dependencies
         run: npm install
         working-directory: Prueba/FRONT/propital
