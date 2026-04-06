@@ -18,11 +18,11 @@ app.include_router(property.router)
 
 @app.get("/", description="This is a test route with no effect on the backend.")
 async def root():
-    return {"message": f"Hello World. Welcome to FastAPI! "}
+    return {"message": "Hello World. Welcome to FastAPI! "}
 
 
 @app.exception_handler(HTTPException)
-async def http_exception_handler(exc) -> JSONResponse:
+async def http_exception_handler(request, exc) -> JSONResponse:
     """Handles HTTPExceptions."""
     return JSONResponse(
         status_code=exc.status_code,
@@ -31,7 +31,7 @@ async def http_exception_handler(exc) -> JSONResponse:
 
 
 @app.exception_handler(UnAuthorizedException)
-async def unauthorized_exception_handler(exc) -> JSONResponse:
+async def unauthorized_exception_handler(request, exc) -> JSONResponse:
     """Handles UnAuthorizedExceptions."""
     return JSONResponse(
         status_code=exc.status_code,

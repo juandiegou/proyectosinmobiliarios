@@ -1,4 +1,3 @@
-from bson.objectid import ObjectId
 from app.models import PropertyModel
 from app.dtos import PropertyDto
 from database.repositories import PropertyRepository

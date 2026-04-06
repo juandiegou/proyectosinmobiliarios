@@ -4,10 +4,9 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from app.controllers import PropertyController
-from app.models import PropertyModel, QueryModel, DeletePropertyModel
-from typing import Union, Tuple
+from app.models import PropertyModel, DeletePropertyModel
+from typing import Tuple
 from datetime import datetime
-from bson import ObjectId
 import json
 
 router = APIRouter()
@@ -181,7 +180,7 @@ async def get_by_filter(
     if id is not None:
         filters["id"] = {"$eq": id}
     if address is not None:
-        filters["address"] = {"address": {"$regex": address, "$options": "i"}}
+        filters["address"] = {"$regex": address, "$options": "i"}
     if max_price is not None:
         filters["price"] = {"$lte": max_price}
     if min_price is not None:
@@ -199,27 +198,23 @@ async def get_by_filter(
     if min_size_sqft is not None:
         filters["size_sqft"] = {"$gte": min_size_sqft}
     if location is not None:
-        filters["location"] = {"location": {"$eq": location, "$options": "i"}}
+        filters["location"] = {"$eq": location}
     if terrain_type is not None:
-        filters["terrain_type"] = {
-            "terrain_type": {"$eq": terrain_type, "$options": "i"}
-        }
+        filters["terrain_type"] = {"$eq": terrain_type}
     if is_offer is not None:
-        filters["is_offer"] = {"is_offer": is_offer}
+        filters["is_offer"] = {"$eq": is_offer}
     if max_discount is not None:
         filters["discount"] = {"$lte": max_discount}
     if min_discount is not None:
         filters["discount"] = {"$gte": min_discount}
     if description is not None:
-        filters["description"] = {
-            "description": {"$regex": description, "$options": "i"}
-        }
+        filters["description"] = {"$regex": description, "$options": "i"}
     if details is not None:
-        filters["details"] = {"details": {"$all": ["swimming pool", "garage"]}}
+        filters["details"] = {"$eq": details}
     if created_at is not None:
-        filters["created_at"] = {"created_at": {"$gte": datetime(created_at)}}
+        filters["created_at"] = {"$gte": created_at}
     if updated_at is not None:
-        filters["updated_at"] = {"updated_at": {"$gte": datetime(updated_at)}}
+        filters["updated_at"] = {"$gte": updated_at}
     properties = property_controller.get_by_tag(filters)
     if properties is not None:
         return JSONResponse(
