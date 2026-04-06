@@ -45,33 +45,53 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      # Install dependencies so ESLint can resolve eslint-config-next and other
-      # packages declared in Prueba/FRONT/propital/package.json.
+      # Install Node.js dependencies so ESLint can resolve eslint-config-next
+      # and other packages declared in Prueba/FRONT/propital/package.json.
       - name: Install frontend dependencies
         run: npm install
         working-directory: Prueba/FRONT/propital
 
-      # Execute Codacy Analysis CLI and generate a SARIF output with the security issues identified during the analysis
-      - name: Run Codacy Analysis CLI
+      # Install Python dependencies for the backend API so Codacy's Python
+      # analyzers (e.g. pylint, bandit) can resolve imported packages.
+      - name: Install backend dependencies
+        run: pip install --user -r requirements.txt
+        working-directory: Prueba/API
+
+      # --- Frontend analysis (JavaScript / ESLint) ---
+      # Scoped to Prueba/FRONT/propital so ESLint can find .eslintrc.json
+      # (there is no ESLint config at the repository root).
+      - name: Run Codacy Analysis CLI (Frontend)
         uses: codacy/codacy-analysis-cli-action@d840f886c4bd4edc059706d09c6a1586111c540b
         with:
-          # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
-          # You can also omit the token and run the tools that support default configurations
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           verbose: true
-          output: results.sarif
+          output: results-frontend.sarif
           format: sarif
-          # Analyze only the frontend subdirectory so ESLint can find .eslintrc.json
-          # (there is no ESLint config at the repository root)
           directory: Prueba/FRONT/propital
-          # Adjust severity of non-security issues
           gh-code-scanning-compat: true
-          # Force 0 exit code to allow SARIF file generation
-          # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
 
-      # Upload the SARIF file generated in the previous step
-      - name: Upload SARIF results file
+      # --- Backend analysis (Python) ---
+      # Scoped to Prueba/API so Codacy's Python tools (pylint, bandit, etc.)
+      # analyse the FastAPI service and its dependencies.
+      - name: Run Codacy Analysis CLI (Backend)
+        uses: codacy/codacy-analysis-cli-action@d840f886c4bd4edc059706d09c6a1586111c540b
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          verbose: true
+          output: results-backend.sarif
+          format: sarif
+          directory: Prueba/API
+          gh-code-scanning-compat: true
+          max-allowed-issues: 2147483647
+
+      # Upload SARIF results from both analyses
+      - name: Upload frontend SARIF results
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: results.sarif
+          sarif_file: results-frontend.sarif
+
+      - name: Upload backend SARIF results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results-backend.sarif
