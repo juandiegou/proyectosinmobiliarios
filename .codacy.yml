@@ -1,0 +1,50 @@
+---
+# Codacy configuration file
+# This file restricts Codacy analysis to only the languages used in this repository:
+# - JavaScript/TypeScript (Frontend: Next.js)
+# - Python (Backend: FastAPI)
+#
+# By excluding unnecessary language analyzers (PHP, C/C++, etc.), we significantly
+# reduce workflow execution time and avoid downloading irrelevant Docker images.
+
+engines:
+  # JavaScript/TypeScript analysis
+  eslint:
+    enabled: true
+
+  # Python analysis
+  pylint:
+    enabled: true
+  bandit:
+    enabled: true
+  prospector:
+    enabled: true
+
+  # Disable all other language analyzers
+  phpmd:
+    enabled: false
+  phpcs:
+    enabled: false
+  flawfinder:
+    enabled: false
+  clangtidy:
+    enabled: false
+  jshint:
+    enabled: false
+  jacksonlinter:
+    enabled: false
+
+# Exclude directories that should not be analyzed
+exclude_paths:
+  - "node_modules/**"
+  - "**/node_modules/**"
+  - "venv/**"
+  - "**/venv/**"
+  - "**/*.min.js"
+  - "**/*.bundle.js"
+  - "**/dist/**"
+  - "**/.next/**"
+  - "**/build/**"
+  - "**/coverage/**"
+  - "**/__pycache__/**"
+  - "**/*.pyc"
