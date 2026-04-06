@@ -38,12 +38,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install frontend dependencies so ESLint can resolve eslint-config-next
+      # Node.js 18 LTS is used here because eslint-config-next and @rushstack/eslint-patch
+      # require the 'node:path' built-in module specifier (available since Node 14.18.0).
+      # Node 18 LTS is the recommended long-term-support release that satisfies this requirement.
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '18'
 
+      # Install dependencies so Codacy's ESLint can resolve eslint-config-next
+      # and other packages declared in Prueba/FRONT/propital/package.json.
       - name: Install frontend dependencies
         run: npm install
         working-directory: Prueba/FRONT/propital
