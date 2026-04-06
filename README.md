@@ -8,7 +8,8 @@ Proyecto de prueba Propital de visualización de proyectos inmobiliarios
 3. [Requisitos](#requisitos)
 4. [Instrucciones de Instalación](#instrucciones-de-instalación)
 5. [Uso](#uso)
-6. [Vista interfaz](#interfaz)
+6. [Análisis de Código (CI/CD)](#análisis-de-código-cicd)
+7. [Vista interfaz](#interfaz)
 
 
 ## Descripción
@@ -194,5 +195,21 @@ Espero que estas instrucciones te sean útiles. Si tienes más preguntas o neces
     https://proyectosinmobiliarios.vercel.app/viewer
 ````
 [Link](https://proyectosinmobiliarios.vercel.app/viewer)
+
+## Análisis de Código (CI/CD)
+
+El workflow de Codacy Security Scan (`.github/workflows/codacy.yml`) analiza el código con varias herramientas.
+
+### ESLint (Frontend)
+El frontend (`Prueba/FRONT/propital`) usa `eslint-config-next`. El workflow instala las dependencias automáticamente antes de ejecutar el análisis.
+
+### PMD
+Se incluye un archivo `pmd-ruleset.xml` en la raíz del proyecto con reglas básicas para Java.
+
+> **Pasos manuales para PMD en Codacy:**
+> 1. En la configuración del repositorio en [Codacy](https://app.codacy.com), ir a **Code patterns** → **PMD**.
+> 2. Asegurarse de que PMD esté habilitado y que se use el archivo `pmd-ruleset.xml` como ruleset.
+> 3. Si el proyecto no contiene código Java, se puede deshabilitar PMD desde la misma interfaz para evitar falsos errores.
+
 
 
