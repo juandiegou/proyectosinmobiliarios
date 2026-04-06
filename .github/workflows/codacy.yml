@@ -67,7 +67,7 @@ jobs:
           verbose: true
           output: results-frontend.sarif
           format: sarif
-          directory: Prueba/FRONT/propital
+          directory: ${{ github.workspace }}/Prueba/FRONT/propital
           gh-code-scanning-compat: true
           max-allowed-issues: 2147483647
 
@@ -81,7 +81,7 @@ jobs:
           verbose: true
           output: results-backend.sarif
           format: sarif
-          directory: Prueba/API
+          directory: ${{ github.workspace }}/Prueba/API
           gh-code-scanning-compat: true
           max-allowed-issues: 2147483647
 
