@@ -1,0 +1,23 @@
+# Codacy configuration file for Python and Next.js
+version: v2
+
+# Define the analyzers to use and configure them
+analyzers:
+  python:
+    enabled: true
+  javascript:
+    enabled: true
+    mode: next.js
+
+# Disable Java/PMD analyzers
+  java:
+    enabled: false
+    # not used
+    pmd:
+      enabled: false
+      # not used
+
+# Define which files and directories to exclude from analysis
+exclude:
+  - node_modules/
+  - __pycache__/
