@@ -1,20 +1,30 @@
 .container_map {
-    object-fit: cover;
     position: relative;
-    display: flexbox;
+    display: flex;
     flex-direction: column;
-    align-self: center;
-    align-items: center;
-    align-content: center;
+    gap: 1rem;
     width: 100%;
-    height: 80vh;
+    min-width: 0;
+    height: auto;
+}
+
+/* Móvil: el mapa ocupa una altura fija y el panel va debajo, sin desbordar */
+.container_map .map {
+    height: 55vh;
+    min-height: 260px;
+}
+
+@media (min-width: 768px) {
+    .container_map .map {
+        height: 70vh;
+    }
 }
 
 .map {
     object-fit: cover;
     position: relative;
     width: 100%;
-    height: 100%;
+    min-width: 0;
     border-radius: 2rem;
     max-width: 100vw; /* Puedes ajustar este valor según tus necesidades */
     margin: 0 auto; /* Centra el contenedor horizontalmente en la página */
