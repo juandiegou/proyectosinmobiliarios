@@ -1,33 +1,16 @@
-import Viewer from './viewer';
-import { requestAPI } from '@/request/axios-request';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import type { GetServerSideProps } from 'next';
 
+// La portada no carga propiedades: redirige directamente al visor,
+// que hace su propia consulta filtrada.
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: '/viewer',
+      permanent: false,
+    },
+  };
+};
 
-export default function Home({...property}:any) {
-  const router = useRouter();
-  useEffect(() => {
-    const redirectTimeout = setTimeout(() => {
-      router.push('/viewer');
-    }, 2000);
-
-    return () => clearTimeout(redirectTimeout);
-  }, [router]);
-  return <main className='h-full bg-background'>
-    <Viewer properties={property} />
-  </main>;
+export default function Home() {
+  return null;
 }
-
-
-export async function getServerSideProps(params:any) {
-    // const {url} = params;
-    
-    return await requestAPI.get('/getall').then((res) => {
-      return {
-        props: {
-          data: res.data.data,
-        },
-      };
-    }); 
-  }
-
