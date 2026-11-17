@@ -22,7 +22,7 @@ export default function Home({...property}:any) {
 export async function getServerSideProps(params:any) {
     // const {url} = params;
     
-    return await requestAPI.get('/getall/').then((res) => {
+    return await requestAPI.get('/getall').then((res) => {
       return {
         props: {
           data: res.data.data,

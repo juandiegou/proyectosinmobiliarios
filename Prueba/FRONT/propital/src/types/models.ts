@@ -15,14 +15,12 @@ export interface Property extends Location{
     bedrooms: number,
     bathrooms: number,
     size_sqft: number,
-    location: number[] | Location ,
+    location: number[] | { latitude: number, longitude: number },
     terrain_type: string,
     is_offer: boolean,
     discount: number,
     description: string,
     details: any,
-    latitude: number,
-    longitude: number,
 }
 
 export interface BasePerson extends TimeStamps {
