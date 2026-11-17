@@ -1,41 +1,33 @@
-import { Button, Card, Input, Properties, Filter } from '@/components';
+import { Card, Properties, Filter } from '@/components';
 import { requestAPI } from '@/request/axios-request';
 import { Property } from '@/types';
 
-interface Props{
-  properties:Property[]
-}
-
-export default function viewer({properties}:any) {
+export default function viewer({ properties }: any) {
   return (
-    <main className='h-full bg-background md:flex md:items-center'>
-      <Card className='h-fit w-full md:w-[80%] h-[70%] rounded-none md:rounded-md mx-auto container'>
+    <main className='min-h-full bg-background flex flex-col gap-4 p-2 md:p-4 md:flex-row md:items-start'>
+      <Card className='w-full min-w-0 md:w-[80%] rounded-none md:rounded-md mx-auto'>
         <Properties data={properties} />
       </Card>
-      <Card className='h-fit w-full md:w-[15%] h-[70%] rounded-none md:rounded-md mx-auto container'>
+      <Card className='w-full min-w-0 md:w-[20%] rounded-none md:rounded-md mx-auto'>
         <Filter />
-
       </Card>
     </main>
   );
-};
+}
 
-export async function getServerSideProps(params:any) {
-  const query = await params.query
+export async function getServerSideProps(params: any) {
+  const query = await params.query;
   const queryString = Object.keys(query)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(query[key])}`)
     .join('&');
 
-  console.log(queryString); // Esta línea es opcional, solo para verificar la cadena de consulta generada
-
-  return await requestAPI.get('/filter/property?'+`${queryString}`).then((res) => {
+  return await requestAPI.get('/filter/property?' + `${queryString}`).then((res) => {
     return {
       props: {
         properties: {
-         data: res.data.data,
-        }
+          data: res.data.data as Property[],
+        },
       },
     };
-  }); 
+  });
 }
-  

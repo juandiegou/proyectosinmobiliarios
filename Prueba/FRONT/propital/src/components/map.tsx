@@ -1,28 +1,23 @@
 import { Property } from '@/types';
-import { useToast } from '@/hooks';
-import { propertyToString, getCoordinates } from '@/services/property-service';
+import { getCoordinates } from '@/services/property-service';
 import { CurrencySelector } from '@/components/currency-selector';
+import { PropertyPanel } from '@/components/property-panel';
 import { useCurrencyStore } from '@/store/currency-store';
-import Map, { Marker, Popup } from 'react-map-gl';
-
+import { useState } from 'react';
+import Map, { Marker } from 'react-map-gl';
 
 interface PropertiesProps {
     data: { data: Property[] };
 }
 
-
 export function Properties({ data }: PropertiesProps) {
-    const { addToast } = useToast();
-    const properties: Property[] = data.data;
+    const properties: Property[] = data.data ?? [];
+    const [seleccionada, setSeleccionada] = useState<Property | null>(null);
     const monedaElegida = useCurrencyStore((st) => st.moneda);
     const tasas = useCurrencyStore((st) => st.tasas);
 
-    function openPopup(property: Property) {
-        addToast(propertyToString(property, monedaElegida, tasas), "info");
-    }
-  
     return (
-        <div className='container_map'> 
+        <div className='container_map'>
             <div className='map'>
                 <CurrencySelector />
                 <Map
@@ -38,39 +33,33 @@ export function Properties({ data }: PropertiesProps) {
                     mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
                     testMode={true}
                 >
-                    <>
-                    
-                        {properties?.map((property: Property, index: number) => {
-                            const coords = getCoordinates(property);
-                            if (!coords) return null;
-                            const [lat, lon] = coords;
-                            return (
-                            <div key={index}
-                                className='custom-marker mapboxgl-marker'
-                                onClick={() => { openPopup(property); } }
-                            >
-
-                                <Marker
-                                    key={index}
-                                    longitude={lon}
-                                    latitude={lat}
-                                    anchor='center'
-                                    draggable={false}
-                                    color={'black'}
-                                    onClick={() => { openPopup(property); } } />
-                            </div>
-                            );
-                        })}
-                    
-
-                    </>
-
+                    {properties.map((property: Property) => {
+                        const coords = getCoordinates(property);
+                        if (!coords) return null;
+                        const [lat, lon] = coords;
+                        return (
+                            <Marker
+                                key={property.id}
+                                longitude={lon}
+                                latitude={lat}
+                                anchor='center'
+                                draggable={false}
+                                color={seleccionada?.id === property.id ? 'blue' : 'black'}
+                                onClick={() => setSeleccionada(property)}
+                            />
+                        );
+                    })}
                 </Map>
             </div>
 
+            {seleccionada && (
+                <PropertyPanel
+                    property={seleccionada}
+                    onClose={() => setSeleccionada(null)}
+                    monedaElegida={monedaElegida}
+                    tasas={tasas}
+                />
+            )}
         </div>
-
     );
-
-};
-
+}
