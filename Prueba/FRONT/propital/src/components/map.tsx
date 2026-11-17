@@ -1,6 +1,8 @@
 import { Property } from '@/types';
 import { useToast } from '@/hooks';
-import { propertyToString } from '@/services/property-service';
+import { propertyToString, getCoordinates } from '@/services/property-service';
+import { CurrencySelector } from '@/components/currency-selector';
+import { useCurrencyStore } from '@/store/currency-store';
 import Map, { Marker, Popup } from 'react-map-gl';
 
 
@@ -12,14 +14,17 @@ interface PropertiesProps {
 export function Properties({ data }: PropertiesProps) {
     const { addToast } = useToast();
     const properties: Property[] = data.data;
-    
+    const monedaElegida = useCurrencyStore((st) => st.moneda);
+    const tasas = useCurrencyStore((st) => st.tasas);
+
     function openPopup(property: Property) {
-        addToast(propertyToString(property), "info");
+        addToast(propertyToString(property, monedaElegida, tasas), "info");
     }
   
     return (
         <div className='container_map'> 
             <div className='map'>
+                <CurrencySelector />
                 <Map
                     initialViewState={{
                         longitude: -75.50353,
@@ -30,12 +35,16 @@ export function Properties({ data }: PropertiesProps) {
                     minZoom={1}
                     style={{ width: '100%', height: '100%', position: 'absolute' }}
                     mapStyle='mapbox://styles/mapbox/streets-v11'
-                    mapboxAccessToken='pk.eyJ1IjoianVhbmRpZWdvdWciLCJhIjoiY2xrZXEyMmh4MTFqYjNkcGpxNXhhMHAwcCJ9.ZCasxeuwdK9dZ1uYrppH-Q'
+                    mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
                     testMode={true}
                 >
                     <>
                     
-                        {properties?.map((property: Property, index: number) => (
+                        {properties?.map((property: Property, index: number) => {
+                            const coords = getCoordinates(property);
+                            if (!coords) return null;
+                            const [lat, lon] = coords;
+                            return (
                             <div key={index}
                                 className='custom-marker mapboxgl-marker'
                                 onClick={() => { openPopup(property); } }
@@ -43,14 +52,15 @@ export function Properties({ data }: PropertiesProps) {
 
                                 <Marker
                                     key={index}
-                                    longitude={Array.isArray(property.location) ? property.location[1] : 0}
-                                    latitude={Array.isArray(property.location) ? property.location[0] : 0}
+                                    longitude={lon}
+                                    latitude={lat}
                                     anchor='center'
                                     draggable={false}
                                     color={'black'}
                                     onClick={() => { openPopup(property); } } />
                             </div>
-                        ))}
+                            );
+                        })}
                     
 
                     </>
