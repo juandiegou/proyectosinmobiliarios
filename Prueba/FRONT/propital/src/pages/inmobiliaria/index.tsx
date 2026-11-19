@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSesion } from '@/hooks/use-sesion';
 import { useToast } from '@/hooks';
+import { Spinner } from '@/components/loader';
+import { SkeletonLista } from '@/components/skeleton';
 import { ApiError } from '@/services/api';
 import { crearAsesor, editarAsesor, listarAsesores } from '@/services/gestion';
 import { cerrarSesion, Usuario } from '@/services/sesion';
@@ -19,6 +21,8 @@ export default function PanelInmobiliaria() {
   const [separaciones, setSeparaciones] = useState<Separacion[]>([]);
   const [comisiones, setComisiones] = useState<Record<string, string>>({});
   const [form, setForm] = useState(vacio);
+  const [cargando, setCargando] = useState(true);
+  const [guardando, setGuardando] = useState<string | null>(null);
 
   useEffect(() => {
     if (!listo) return;
@@ -40,11 +44,14 @@ export default function PanelInmobiliaria() {
         cerrarSesion();
         router.replace('/login');
       }
+    } finally {
+      setCargando(false);
     }
   }
 
   async function crear(e: React.FormEvent) {
     e.preventDefault();
+    setGuardando('crear');
     try {
       await crearAsesor({
         email: form.email,
@@ -58,18 +65,23 @@ export default function PanelInmobiliaria() {
       cargar();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'No pudimos crear el asesor.', 'info');
+    } finally {
+      setGuardando(null);
     }
   }
 
   async function guardarComision(id: string) {
     const valor = comisiones[id];
     if (valor === undefined || valor === '') return;
+    setGuardando(id);
     try {
       await editarAsesor(id, { comision_pct: Number(valor) });
       addToast('Comisión actualizada.', 'info');
       cargar();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'No pudimos actualizar la comisión.', 'info');
+    } finally {
+      setGuardando(null);
     }
   }
 
@@ -104,13 +116,14 @@ export default function PanelInmobiliaria() {
           <input className={campo} placeholder='Teléfono (opcional)' value={form.telefono} onChange={(e) => setForm({ ...form, telefono: e.target.value })} />
           <input className={campo} type='password' placeholder='Contraseña inicial (mínimo 8)' value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required minLength={8} autoComplete='new-password' />
           <input className={campo} type='number' step='any' placeholder='Comisión %' value={form.comision} onChange={(e) => setForm({ ...form, comision: e.target.value })} required min={0} max={100} />
-          <button type='submit' className={`${boton} bg-blue-700 hover:bg-blue-800`}>Crear asesor</button>
+          <button type='submit' disabled={guardando === 'crear'} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{guardando === 'crear' && <Spinner />} Crear asesor</button>
         </form>
       </section>
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Asesores ({asesores.length})</h2>
-        {asesores.length === 0 && <p className='text-sm opacity-70'>Aún no tienes asesores.</p>}
+        {cargando && <SkeletonLista filas={3} />}
+        {!cargando && asesores.length === 0 && <p className='text-sm opacity-70'>Aún no tienes asesores.</p>}
         {asesores.map((a) => (
           <div key={a.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm md:flex-row md:items-center md:justify-between'>
             <div className='flex flex-col'>
@@ -128,7 +141,7 @@ export default function PanelInmobiliaria() {
                 value={comisiones[a.id] ?? ''}
                 onChange={(e) => setComisiones({ ...comisiones, [a.id]: e.target.value })}
               />
-              <button onClick={() => guardarComision(a.id)} className={`${boton} bg-blue-700 hover:bg-blue-800`}>Cambiar comisión</button>
+              <button onClick={() => guardarComision(a.id)} disabled={guardando !== null} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{guardando === a.id && <Spinner />} Cambiar comisión</button>
               <button onClick={() => alternarActivo(a)} className={`${boton} border border-white/30`}>{a.activo ? 'Desactivar' : 'Activar'}</button>
             </div>
           </div>
@@ -137,7 +150,8 @@ export default function PanelInmobiliaria() {
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Separaciones de la inmobiliaria</h2>
-        {separaciones.length === 0 && <p className='text-sm opacity-70'>Todavía no hay separaciones.</p>}
+        {cargando && <SkeletonLista filas={2} />}
+        {!cargando && separaciones.length === 0 && <p className='text-sm opacity-70'>Todavía no hay separaciones.</p>}
         {separaciones.map((s) => (
           <div key={s.id} className='flex flex-col text-sm border-t border-white/10 pt-3'>
             <span>Propiedad #{s.property_id} · {ESTADOS_SEPARACION[s.estado]}</span>

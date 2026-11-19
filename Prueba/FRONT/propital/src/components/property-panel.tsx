@@ -9,6 +9,7 @@ import { useToast } from '@/hooks';
 import { agregarFavorito, listarFavoritos, quitarFavorito } from '@/services/favoritos';
 import { separar } from '@/services/separaciones';
 import { ApiError } from '@/services/api';
+import { Spinner } from './loader';
 
 interface Props {
   property: Property;
@@ -94,11 +95,11 @@ export function PropertyPanel({ property, onClose, monedaElegida, tasas }: Props
             {esCliente ? (
               <>
                 <button onClick={alternarFavorita} disabled={ocupado} className={`${boton} border border-white/30 hover:bg-white/10`}>
-                  {esFavorita ? '★ Quitar de favoritos' : '☆ Guardar en favoritos'}
+                  {ocupado && <Spinner />} {esFavorita ? '★ Quitar de favoritos' : '☆ Guardar en favoritos'}
                 </button>
                 {puedeSeparar && (
                   <button onClick={separarPropiedad} disabled={ocupado} className={`${boton} bg-blue-700 hover:bg-blue-800`}>
-                    Separar esta propiedad
+                    {ocupado && <Spinner />} Separar esta propiedad
                   </button>
                 )}
                 <Link href='/cuenta' className='text-sm underline opacity-80'>Ver mis favoritos y separaciones</Link>
