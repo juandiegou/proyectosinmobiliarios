@@ -9,6 +9,7 @@ export interface Separacion {
   asesor_id?: string | null;
   inmobiliaria_id?: string | null;
   monto: number;
+  moneda?: string | null;
   devolucion_pct: number;
   comision_pct: number;
   comision_asesor: number;
@@ -53,4 +54,10 @@ export async function cancelarSeparacion(id: string): Promise<Separacion> {
 export async function venderSeparacion(id: string): Promise<Separacion> {
   const res = await apiFetch<{ data: Separacion }>(`/separaciones/${id}/vender`, { method: 'POST' });
   return res.data;
+}
+
+/** Monto con la moneda de la propiedad, si la separación la tiene. */
+export function formatMonto(monto: number, moneda?: string | null): string {
+  const numero = monto.toLocaleString('es-CO');
+  return moneda ? `${numero} ${moneda}` : numero;
 }

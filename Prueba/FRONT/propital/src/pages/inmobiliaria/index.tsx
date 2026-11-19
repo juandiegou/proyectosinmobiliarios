@@ -7,7 +7,8 @@ import { SkeletonLista } from '@/components/skeleton';
 import { ApiError } from '@/services/api';
 import { crearAsesor, editarAsesor, listarAsesores } from '@/services/gestion';
 import { cerrarSesion, Usuario } from '@/services/sesion';
-import { ESTADOS_SEPARACION, Separacion, listarSeparaciones } from '@/services/separaciones';
+import { ESTADOS_SEPARACION, Separacion, formatMonto, listarSeparaciones } from '@/services/separaciones';
+import { comisionesPorAsesor, FilaComision } from '@/services/reportes';
 
 const campo = 'w-full rounded-lg bg-backgroundDark border border-backgroundDark text-white p-2.5';
 const boton = 'rounded-lg p-2.5 text-sm font-medium disabled:opacity-60';
@@ -23,6 +24,9 @@ export default function PanelInmobiliaria() {
   const [form, setForm] = useState(vacio);
   const [cargando, setCargando] = useState(true);
   const [guardando, setGuardando] = useState<string | null>(null);
+  const [reporte, setReporte] = useState<FilaComision[]>([]);
+  const [desde, setDesde] = useState('');
+  const [hasta, setHasta] = useState('');
 
   useEffect(() => {
     if (!listo) return;
@@ -36,9 +40,10 @@ export default function PanelInmobiliaria() {
 
   async function cargar() {
     try {
-      const [a, s] = await Promise.all([listarAsesores(), listarSeparaciones()]);
+      const [a, s, c] = await Promise.all([listarAsesores(), listarSeparaciones(), comisionesPorAsesor(desde || undefined, hasta || undefined)]);
       setAsesores(a);
       setSeparaciones(s);
+      setReporte(c);
     } catch (e) {
       if (e instanceof ApiError && e.status === 401) {
         cerrarSesion();
@@ -149,13 +154,29 @@ export default function PanelInmobiliaria() {
       </section>
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
+        <h2 className='font-semibold'>Comisiones por asesor</h2>
+        <div className='flex flex-wrap items-end gap-2 text-sm'>
+          <label className='flex flex-col gap-1'>Desde<input type='date' className={campo} value={desde} onChange={(e) => setDesde(e.target.value)} /></label>
+          <label className='flex flex-col gap-1'>Hasta<input type='date' className={campo} value={hasta} onChange={(e) => setHasta(e.target.value)} /></label>
+          <button onClick={cargar} className={`${boton} bg-blue-700 hover:bg-blue-800`}>Aplicar</button>
+        </div>
+        {reporte.length === 0 && <p className='text-sm opacity-70'>Sin comisiones en el período.</p>}
+        {reporte.map((f) => (
+          <div key={f.asesor_id} className='flex justify-between gap-3 border-t border-white/10 pt-3 text-sm'>
+            <span>{f.asesor ?? 'Sin asesor'} · {f.separaciones} separación(es)</span>
+            <span>Comisión: {f.comision_total.toLocaleString('es-CO')}</span>
+          </div>
+        ))}
+      </section>
+
+      <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Separaciones de la inmobiliaria</h2>
         {cargando && <SkeletonLista filas={2} />}
         {!cargando && separaciones.length === 0 && <p className='text-sm opacity-70'>Todavía no hay separaciones.</p>}
         {separaciones.map((s) => (
           <div key={s.id} className='flex flex-col text-sm border-t border-white/10 pt-3'>
             <span>Propiedad #{s.property_id} · {ESTADOS_SEPARACION[s.estado]}</span>
-            <span className='opacity-70'>Monto: {s.monto.toLocaleString('es-CO')} · Comisión del asesor: {s.comision_asesor.toLocaleString('es-CO')}</span>
+            <span className='opacity-70'>Monto: {formatMonto(s.monto, s.moneda)} · Comisión del asesor: {formatMonto(s.comision_asesor, s.moneda)}</span>
           </div>
         ))}
       </section>

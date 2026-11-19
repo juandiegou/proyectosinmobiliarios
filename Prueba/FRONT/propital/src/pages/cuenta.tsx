@@ -8,7 +8,7 @@ import { SkeletonLista, Skeleton } from '@/components/skeleton';
 import { ApiError, getToken } from '@/services/api';
 import { actualizarPerfil, cerrarSesion, miPerfil, Usuario } from '@/services/sesion';
 import { listarFavoritos, quitarFavorito } from '@/services/favoritos';
-import { ESTADOS_SEPARACION, Separacion, cancelarSeparacion, listarSeparaciones, pagarSeparacion } from '@/services/separaciones';
+import { ESTADOS_SEPARACION, Separacion, cancelarSeparacion, formatMonto, listarSeparaciones, pagarSeparacion } from '@/services/separaciones';
 import type { Property } from '@/types';
 
 const campo = 'w-full rounded-lg bg-backgroundDark border border-backgroundDark text-white p-2.5';
@@ -139,7 +139,7 @@ export default function Cuenta() {
           <div key={s.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm md:flex-row md:items-center md:justify-between'>
             <div className='flex flex-col'>
               <span>Propiedad #{s.property_id} · {ESTADOS_SEPARACION[s.estado]}</span>
-              <span className='opacity-70'>Monto: {s.monto.toLocaleString('es-CO')}{s.devuelto > 0 ? ` · Devuelto: ${s.devuelto.toLocaleString('es-CO')}` : ''}</span>
+              <span className='opacity-70'>Monto: {formatMonto(s.monto, s.moneda)}{s.devuelto > 0 ? ` · Devuelto: ${formatMonto(s.devuelto, s.moneda)}` : ''}</span>
               {s.estado === 'vigente' && s.vence_en && <span className='opacity-70'>Vence: {new Date(s.vence_en).toLocaleDateString('es-CO')}</span>}
             </div>
             <div className='flex gap-2'>
@@ -147,7 +147,7 @@ export default function Cuenta() {
                 <button onClick={() => accion(s.id, () => pagarSeparacion(s.id), 'Pago aprobado. Propiedad separada.')} disabled={ocupadoId !== null} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{ocupadoId === s.id && <Spinner />} Pagar</button>
               )}
               {(s.estado === 'pendiente_pago' || s.estado === 'vigente') && (
-                <button onClick={() => accion(s.id, () => cancelarSeparacion(s.id), 'Separación cancelada.')} disabled={ocupadoId !== null} className={`${boton} bg-backgroundDark border border-white/30`}>{ocupadoId === s.id && <Spinner />} Desistir</button>
+                <button onClick={() => window.confirm('¿Seguro que quieres desistir? Se aplicará la política de devolución.') && accion(s.id, () => cancelarSeparacion(s.id), 'Separación cancelada.')} disabled={ocupadoId !== null} className={`${boton} bg-backgroundDark border border-white/30`}>{ocupadoId === s.id && <Spinner />} Desistir</button>
               )}
             </div>
           </div>

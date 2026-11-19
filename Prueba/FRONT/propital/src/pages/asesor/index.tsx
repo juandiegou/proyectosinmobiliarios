@@ -7,7 +7,7 @@ import { Spinner } from '@/components/loader';
 import { SkeletonLista } from '@/components/skeleton';
 import { ApiError } from '@/services/api';
 import { editarPropiedad, misPropiedades, publicarPropiedad } from '@/services/gestion';
-import { ESTADOS_SEPARACION, Separacion, listarSeparaciones, venderSeparacion } from '@/services/separaciones';
+import { ESTADOS_SEPARACION, Separacion, formatMonto, listarSeparaciones, venderSeparacion } from '@/services/separaciones';
 import { cerrarSesion } from '@/services/sesion';
 import type { Property } from '@/types';
 
@@ -187,7 +187,7 @@ export default function PanelAsesor() {
           <div key={s.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm md:flex-row md:items-center md:justify-between'>
             <div className='flex flex-col'>
               <span>Propiedad #{s.property_id} · {ESTADOS_SEPARACION[s.estado]}</span>
-              <span className='opacity-70'>Monto: {s.monto.toLocaleString('es-CO')} · Tu comisión: {s.comision_asesor.toLocaleString('es-CO')} ({s.comision_pct}%)</span>
+              <span className='opacity-70'>Monto: {formatMonto(s.monto, s.moneda)} · Tu comisión: {formatMonto(s.comision_asesor, s.moneda)} ({s.comision_pct}%)</span>
             </div>
             {s.estado === 'vigente' && (
               <button onClick={() => vender(s.id)} disabled={vendiendo !== null} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{vendiendo === s.id && <Spinner />} Marcar como vendida</button>

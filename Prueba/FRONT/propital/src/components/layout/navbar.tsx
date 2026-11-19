@@ -4,7 +4,7 @@ import { useSesion } from '@/hooks/use-sesion';
 import { cerrarSesion } from '@/services/sesion';
 
 const ENLACE_POR_ROL: Record<string, { href: string; texto: string }> = {
-    admin: { href: '/admin/solicitudes', texto: 'Solicitudes' },
+    admin: { href: '/admin/gestion', texto: 'Administración' },
     inmobiliaria: { href: '/inmobiliaria', texto: 'Mi inmobiliaria' },
     asesor: { href: '/asesor', texto: 'Mis propiedades' },
     cliente: { href: '/cuenta', texto: 'Mi cuenta' },
