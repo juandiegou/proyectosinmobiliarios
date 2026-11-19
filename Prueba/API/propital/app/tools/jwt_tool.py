@@ -1,4 +1,4 @@
-from jose import jwt
+import jwt
 from fastapi.responses import JSONResponse
 from datetime import datetime, timedelta
 
