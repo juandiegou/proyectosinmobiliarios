@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { iniciarSesion, registrarCliente } from '@/services/sesion';
 import { ApiError } from '@/services/api';
+import { Spinner } from '@/components/loader';
 
 export default function Registro() {
   const router = useRouter();
@@ -40,7 +41,7 @@ export default function Registro() {
         <input className={campo} type='password' placeholder='Contraseña (mínimo 8 caracteres)' value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} autoComplete='new-password' />
         {error && <p className='text-red-500 text-sm'>{error}</p>}
         <button type='submit' disabled={cargando} className='rounded-lg bg-blue-700 hover:bg-blue-800 disabled:opacity-60 p-2.5 font-medium'>
-          {cargando ? 'Creando...' : 'Crear cuenta'}
+          {cargando && <Spinner />} {cargando ? 'Creando...' : 'Crear cuenta'}
         </button>
         <Link href='/login' className='text-sm text-center underline opacity-80'>Ya tengo cuenta</Link>
       </form>

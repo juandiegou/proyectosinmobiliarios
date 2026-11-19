@@ -11,3 +11,8 @@ export function Loader() {
         </div>
     );
 }
+
+/** Spinner pequeño para botones mientras una acción se completa. */
+export function Spinner({ size = 16 }: { size?: number }) {
+    return <AiOutlineLoading3Quarters className='animate-spin inline-block' size={size} aria-hidden />;
+}

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { iniciarSesion } from '@/services/sesion';
 import { RUTA_POR_ROL } from '@/services/rutas';
 import { ApiError } from '@/services/api';
+import { Spinner } from '@/components/loader';
 
 export default function Login() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Login() {
         <input className={campo} type='password' placeholder='Contraseña' value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete='current-password' />
         {error && <p className='text-red-500 text-sm'>{error}</p>}
         <button type='submit' disabled={cargando} className='rounded-lg bg-blue-700 hover:bg-blue-800 disabled:opacity-60 p-2.5 font-medium'>
-          {cargando ? 'Entrando...' : 'Entrar'}
+          {cargando && <Spinner />} {cargando ? 'Entrando...' : 'Entrar'}
         </button>
         <Link href='/registro' className='text-sm text-center underline opacity-80'>Crear cuenta de cliente</Link>
       </form>

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSesion } from '@/hooks/use-sesion';
 import { useToast } from '@/hooks';
+import { Spinner } from '@/components/loader';
+import { SkeletonLista } from '@/components/skeleton';
 import { ApiError } from '@/services/api';
 import { editarPropiedad, misPropiedades, publicarPropiedad } from '@/services/gestion';
 import { ESTADOS_SEPARACION, Separacion, listarSeparaciones, venderSeparacion } from '@/services/separaciones';
@@ -22,6 +24,9 @@ export default function PanelAsesor() {
   const [form, setForm] = useState(vacio);
   const [editando, setEditando] = useState<number | null>(null);
   const [edicion, setEdicion] = useState({ price: '', monto: '', dias: '', devolucion: '' });
+  const [cargando, setCargando] = useState(true);
+  const [guardando, setGuardando] = useState(false);
+  const [vendiendo, setVendiendo] = useState<string | null>(null);
 
   useEffect(() => {
     if (!listo) return;
@@ -43,6 +48,8 @@ export default function PanelAsesor() {
         cerrarSesion();
         router.replace('/login');
       }
+    } finally {
+      setCargando(false);
     }
   }
 
@@ -51,6 +58,7 @@ export default function PanelAsesor() {
 
   async function publicar(e: React.FormEvent) {
     e.preventDefault();
+    setGuardando(true);
     try {
       await publicarPropiedad({
         address: form.address,
@@ -70,10 +78,13 @@ export default function PanelAsesor() {
       cargar();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'No pudimos publicar la propiedad.', 'info');
+    } finally {
+      setGuardando(false);
     }
   }
 
   async function guardarEdicion(id: number) {
+    setGuardando(true);
     try {
       const cambios: Parameters<typeof editarPropiedad>[1] = {};
       if (edicion.price) cambios.price = Number(edicion.price);
@@ -91,16 +102,21 @@ export default function PanelAsesor() {
       cargar();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'No pudimos actualizar la propiedad.', 'info');
+    } finally {
+      setGuardando(false);
     }
   }
 
   async function vender(id: string) {
+    setVendiendo(id);
     try {
       await venderSeparacion(id);
       addToast('Venta registrada.', 'info');
       cargar();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'No pudimos registrar la venta.', 'info');
+    } finally {
+      setVendiendo(null);
     }
   }
 
@@ -133,13 +149,14 @@ export default function PanelAsesor() {
           <input className={campo} type='number' placeholder='Monto de separación' value={form.monto} onChange={set('monto')} required min={1} />
           <input className={campo} type='number' placeholder='Días de vigencia' value={form.dias} onChange={set('dias')} required min={1} max={180} />
           <input className={campo} type='number' placeholder='% de devolución' value={form.devolucion} onChange={set('devolucion')} required min={0} max={100} />
-          <button type='submit' className={`${boton} bg-blue-700 hover:bg-blue-800 md:col-span-3`}>Publicar</button>
+          <button type='submit' disabled={guardando} className={`${boton} bg-blue-700 hover:bg-blue-800 md:col-span-3`}>{guardando && <Spinner />} Publicar</button>
         </form>
       </section>
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Mis propiedades ({propiedades.length})</h2>
-        {propiedades.map((p) => (
+        {cargando && <SkeletonLista filas={3} />}
+        {!cargando && propiedades.map((p) => (
           <div key={p.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm'>
             <div className='flex flex-col gap-1 md:flex-row md:items-center md:justify-between'>
               <span>#{p.id} · {p.address} · {(p.estado ?? 'disponible')}</span>
@@ -155,7 +172,7 @@ export default function PanelAsesor() {
                 <input className={campo} type='number' placeholder={`Separación (${p.separacion?.monto ?? '-'})`} value={edicion.monto} onChange={(e) => setEdicion({ ...edicion, monto: e.target.value })} />
                 <input className={campo} type='number' placeholder={`Días (${p.separacion?.dias_vencimiento ?? '-'})`} value={edicion.dias} onChange={(e) => setEdicion({ ...edicion, dias: e.target.value })} />
                 <input className={campo} type='number' placeholder={`% devolución (${p.separacion?.devolucion_pct ?? '-'})`} value={edicion.devolucion} onChange={(e) => setEdicion({ ...edicion, devolucion: e.target.value })} />
-                <button onClick={() => guardarEdicion(p.id)} className={`${boton} bg-blue-700 hover:bg-blue-800 md:col-span-4`}>Guardar cambios</button>
+                <button onClick={() => guardarEdicion(p.id)} disabled={guardando} className={`${boton} bg-blue-700 hover:bg-blue-800 md:col-span-4`}>{guardando && <Spinner />} Guardar cambios</button>
               </div>
             )}
           </div>
@@ -164,7 +181,8 @@ export default function PanelAsesor() {
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Separaciones de mis propiedades</h2>
-        {separaciones.length === 0 && <p className='text-sm opacity-70'>Todavía no hay separaciones.</p>}
+        {cargando && <SkeletonLista filas={2} />}
+        {!cargando && separaciones.length === 0 && <p className='text-sm opacity-70'>Todavía no hay separaciones.</p>}
         {separaciones.map((s) => (
           <div key={s.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm md:flex-row md:items-center md:justify-between'>
             <div className='flex flex-col'>
@@ -172,7 +190,7 @@ export default function PanelAsesor() {
               <span className='opacity-70'>Monto: {s.monto.toLocaleString('es-CO')} · Tu comisión: {s.comision_asesor.toLocaleString('es-CO')} ({s.comision_pct}%)</span>
             </div>
             {s.estado === 'vigente' && (
-              <button onClick={() => vender(s.id)} className={`${boton} bg-blue-700 hover:bg-blue-800`}>Marcar como vendida</button>
+              <button onClick={() => vender(s.id)} disabled={vendiendo !== null} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{vendiendo === s.id && <Spinner />} Marcar como vendida</button>
             )}
           </div>
         ))}

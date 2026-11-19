@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSesion } from '@/hooks/use-sesion';
 import { useToast } from '@/hooks';
+import { Spinner } from '@/components/loader';
+import { SkeletonLista, Skeleton } from '@/components/skeleton';
 import { ApiError, getToken } from '@/services/api';
 import { actualizarPerfil, cerrarSesion, miPerfil, Usuario } from '@/services/sesion';
 import { listarFavoritos, quitarFavorito } from '@/services/favoritos';
@@ -23,6 +25,8 @@ export default function Cuenta() {
   const [telefono, setTelefono] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [cargando, setCargando] = useState(true);
+  const [ocupadoId, setOcupadoId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!listo) return;
@@ -43,6 +47,7 @@ export default function Cuenta() {
       setFavoritos(f.data);
       setSeparaciones(s);
       setError('');
+      setCargando(false);
     } catch (e) {
       if (e instanceof ApiError && e.status === 401) {
         cerrarSesion();
@@ -50,6 +55,7 @@ export default function Cuenta() {
         return;
       }
       setError('No pudimos cargar tu cuenta.');
+      setCargando(false);
     }
   }
 
@@ -69,13 +75,16 @@ export default function Cuenta() {
     }
   }
 
-  async function accion(fn: () => Promise<unknown>, mensajeOk: string) {
+  async function accion(clave: string, fn: () => Promise<unknown>, mensajeOk: string) {
+    setOcupadoId(clave);
     try {
       await fn();
       addToast(mensajeOk, 'info');
       await cargarTodo();
     } catch (err) {
       addToast(err instanceof ApiError ? err.message : 'La acción no se pudo completar.', 'info');
+    } finally {
+      setOcupadoId(null);
     }
   }
 
@@ -99,6 +108,7 @@ export default function Cuenta() {
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Mis datos</h2>
+        {cargando ? <Skeleton className='h-32 w-full' /> : (
         <form onSubmit={guardarPerfil} className='grid gap-3 md:grid-cols-2'>
           <input className={campo} value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder='Nombre' minLength={2} required />
           <input className={campo} value={perfil?.email ?? ''} disabled />
@@ -106,22 +116,25 @@ export default function Cuenta() {
           <input className={campo} type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Nueva contraseña (opcional)' minLength={8} autoComplete='new-password' />
           <button type='submit' className={`${boton} bg-blue-700 hover:bg-blue-800 md:col-span-2`}>Guardar cambios</button>
         </form>
+        )}
       </section>
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Mis favoritos ({favoritos.length})</h2>
-        {favoritos.length === 0 && <p className='text-sm opacity-70'>Aún no tienes favoritos. Guárdalos desde el mapa.</p>}
+        {cargando && <SkeletonLista filas={2} />}
+        {!cargando && favoritos.length === 0 && <p className='text-sm opacity-70'>Aún no tienes favoritos. Guárdalos desde el mapa.</p>}
         {favoritos.map((p) => (
           <div key={p.id} className='flex items-center justify-between gap-3 text-sm'>
             <span className='break-words'>{p.address}</span>
-            <button onClick={() => accion(() => quitarFavorito(p.id), 'Quitado de favoritos.')} className='opacity-70 hover:opacity-100'>Quitar</button>
+            <button onClick={() => accion(`fav-${p.id}`, () => quitarFavorito(p.id), 'Quitado de favoritos.')} disabled={ocupadoId !== null} className='opacity-70 hover:opacity-100 disabled:opacity-40'>{ocupadoId === `fav-${p.id}` ? <Spinner /> : 'Quitar'}</button>
           </div>
         ))}
       </section>
 
       <section className='bg-backgroundDark rounded-xl p-4 flex flex-col gap-3'>
         <h2 className='font-semibold'>Mis separaciones</h2>
-        {separaciones.length === 0 && <p className='text-sm opacity-70'>No tienes separaciones.</p>}
+        {cargando && <SkeletonLista filas={2} />}
+        {!cargando && separaciones.length === 0 && <p className='text-sm opacity-70'>No tienes separaciones.</p>}
         {separaciones.map((s) => (
           <div key={s.id} className='flex flex-col gap-2 border-t border-white/10 pt-3 text-sm md:flex-row md:items-center md:justify-between'>
             <div className='flex flex-col'>
@@ -131,10 +144,10 @@ export default function Cuenta() {
             </div>
             <div className='flex gap-2'>
               {s.estado === 'pendiente_pago' && (
-                <button onClick={() => accion(() => pagarSeparacion(s.id), 'Pago aprobado. Propiedad separada.')} className={`${boton} bg-blue-700 hover:bg-blue-800`}>Pagar</button>
+                <button onClick={() => accion(s.id, () => pagarSeparacion(s.id), 'Pago aprobado. Propiedad separada.')} disabled={ocupadoId !== null} className={`${boton} bg-blue-700 hover:bg-blue-800`}>{ocupadoId === s.id && <Spinner />} Pagar</button>
               )}
               {(s.estado === 'pendiente_pago' || s.estado === 'vigente') && (
-                <button onClick={() => accion(() => cancelarSeparacion(s.id), 'Separación cancelada.')} className={`${boton} bg-backgroundDark border border-white/30`}>Desistir</button>
+                <button onClick={() => accion(s.id, () => cancelarSeparacion(s.id), 'Separación cancelada.')} disabled={ocupadoId !== null} className={`${boton} bg-backgroundDark border border-white/30`}>{ocupadoId === s.id && <Spinner />} Desistir</button>
               )}
             </div>
           </div>
