@@ -21,6 +21,9 @@ export interface Property extends Location{
     discount: number,
     description: string,
     details: any,
+    estado?: 'disponible' | 'pendiente' | 'separada' | 'vendida',
+    separacion?: { monto: number, dias_vencimiento: number, devolucion_pct: number } | null,
+    asesor_id?: string | null,
 }
 
 export interface BasePerson extends TimeStamps {
